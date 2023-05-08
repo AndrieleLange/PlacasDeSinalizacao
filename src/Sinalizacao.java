@@ -17,6 +17,12 @@ public class Sinalizacao {
 
     }
 
+    public class ListaDeSinalizacoes {
+        private class Node {
+            public Sinalizacao element;
+            public Node next;
+        }
+
     
 
 }
