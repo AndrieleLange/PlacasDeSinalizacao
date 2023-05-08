@@ -23,7 +23,7 @@ public class Sinalizacao {
             public Sinalizacao element;
             public Node next;
         }
-
+    }
 
     /**
      * // Métodos
