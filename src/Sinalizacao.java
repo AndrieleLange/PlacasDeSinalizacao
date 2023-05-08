@@ -5,7 +5,7 @@ public class Sinalizacao {
     private LocalDate implantacao;
     private int numInicial;
     private int numFinal;
-    private int count = 0;
+    private int count = 0;//não parece certo pq não sria salvo em um array
     //private ---- lado;
     //private ---- localDeInstalacao;
     public Sinalizacao(String descricao, LocalDate implantacao, int numInicial, int numFinal) {
