@@ -35,7 +35,7 @@ public class LeituraArquivo {
         // Mude numLinhas para algum numero pequeno para executar testes mais rapidamente.
         // Ex:
         // for (int i = 0; i < 50; i++) {
-        for (int i = 0; i < numLinhas; i++) {
+        for (int i = 0; i < 50; i++) {
             String[] campos = linhas[i].split(";");
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
