@@ -8,6 +8,14 @@ public class Sinalizacao {
     private int count = 0;//não parece certo pq não sria salvo em um array
     //private ---- lado;
     //private ---- localDeInstalacao;
+
+    public class ListaDeSinalizacoes {
+        private class Node {
+            public Sinalizacao element;
+            public Node next;
+        }
+    }
+    
     public Sinalizacao(String descricao, LocalDate implantacao, int numInicial, int numFinal) {
         this.descricao = descricao;
         this.implantacao = implantacao;
@@ -18,12 +26,7 @@ public class Sinalizacao {
         count++;
     }
 
-    public class ListaDeSinalizacoes {
-        private class Node {
-            public Sinalizacao element;
-            public Node next;
-        }
-    }
+    
 
     /**
      * // Métodos
@@ -33,6 +36,18 @@ public class Sinalizacao {
         return count;
     } 
 
+
+
+
+    public int getMes(int index){
+        int mes ;
+        for(int i = 0; i< count; i++){
+            if()
+
+        }
+
+        return mes;
+    }
     /**
 	int getMes(index) // retorna o mês de implantação da iésima sinalização 
 	LocalDate getDataImplantacao(index) // retorna data de implantação da iésima 
