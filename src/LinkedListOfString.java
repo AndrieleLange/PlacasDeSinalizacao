@@ -61,7 +61,7 @@ public class LinkedListOfString {
      * Adiciona um elemento ao final da lista.
      * @param element elemento a ser adicionado ao final da lista
      */
-    public void orderedAdd (String element)  { 
+    public void orderedAdd(String element)  { 
         Node aux = containsElement(element); // verifica se ja contem element para não inserir duplicado
         if (aux == null) {  // se nao contem element, insere
             Node n = new Node(element);
@@ -185,6 +185,4 @@ public class LinkedListOfString {
         }
         return s.toString();
     }    
-    
-
 }
