@@ -53,6 +53,8 @@ public class LeituraArquivo {
             String complemento = campos[3];
 
             System.out.println("Descricao: " + descricao);
+            
+            // esses vão para a lista simplesmente encadeada
             System.out.println("Estado: " + estado + ", " + complemento);
 
             int anoImplantacao = 0;
@@ -73,7 +75,13 @@ public class LeituraArquivo {
 
             String logradouro = campos[5].split(" ", 2)[0];
             String nomeLog = campos[5].split(" ", 2)[1];
+          
             System.out.println("Logradouro: " + logradouro + " " + nomeLog);
+            // pesquisa logradouro na lista
+            // se não está inclui e guarda ref
+            // se esta guarda ref
+
+            // adiciona a ref o estado e complemento que recuperados visto acima
 
             double numInicial;
             if(campos[6].equals(""))
