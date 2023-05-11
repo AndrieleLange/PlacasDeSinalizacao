@@ -6,6 +6,8 @@ public class ListaDeRuas {
 		public String nomeDaRua;
 		public String idDaRua; //(Av, Rua, Trav, ...)
 	}
+
+	
 	// reset()
 	// next()
 	// prev()
