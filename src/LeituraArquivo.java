@@ -14,7 +14,7 @@ public class LeituraArquivo {
 
     public static void main(String[] args) throws ParseException {
 
-        String linhas[] = new String[110000];
+        String linhas[] = new String[500];
         int numLinhas = 0;
 
         Path filePath = Paths.get("dataEditado.csv");
