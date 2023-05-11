@@ -19,12 +19,21 @@ public class ListaDeRuas {
         }
 	}
 
-	public DoubleLinkedListOfInteger() {
-        header = new Node(null);
-        trailer = new Node(null);
+	public ListaDeRuas() {
+        header = new Node(null, null);
+        trailer = new Node(null, null);
         header.next = trailer;
         trailer.prev = header;
         count = 0;
+    }
+
+	public void add(String logradouro, String id) {
+        Node n = new Node(logradouro, id);
+        n.next = trailer;
+        n.prev = trailer.prev;
+        trailer.prev.next = n;
+        trailer.prev = n;
+        count++;
     }
 
 	
@@ -36,12 +45,18 @@ public class ListaDeRuas {
         current = header.next;
     }
 
+	// contains(nome da rua)	// fazer primeiro pra usar depois
+
+
+	// insereOrdenado(idDaRua, nome da rua, Sinalizacao) // procura pela rua, se já tem 
+	// 			// insere a nova sinalização; se não tem, cria um novo nodo
+	// usar o contains aqui
 
 	// next()
 	//não entendi pra que isso serve
-	public Integer next() {
+	public String next() {
         if (current != trailer) {
-            String ruaAVTravSla = current.element;
+            String ruaAVTravSla = current.nomeDaRua;
             current = current.next;
             return ruaAVTravSla;
         }
@@ -51,8 +66,7 @@ public class ListaDeRuas {
 	// prev()
 
 	// String getRuaComMaisSinalizacoes ()
-	// insereOrdenado(idDaRua, nome da rua, Sinalizacao) // procura pela rua, se já tem 
-	// 			// insere a nova sinalização; se não tem, cria um novo nodo
-	// contains(nome da rua)	
+	
+	
 	// toString
 }

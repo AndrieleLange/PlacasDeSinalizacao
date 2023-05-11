@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class ListaDeSinalizacoes {
     private class Node {
         public Sinalizacao element;
