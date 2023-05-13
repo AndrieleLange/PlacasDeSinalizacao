@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 public class LeituraArquivo {
 
     public static void main(String[] args) throws ParseException {
+        ListaDeRuas listaDeRuas = new ListaDeRuas();
 
         String linhas[] = new String[500];
         int numLinhas = 0;
@@ -35,7 +36,7 @@ public class LeituraArquivo {
         // Mude numLinhas para algum numero pequeno para executar testes mais rapidamente.
         // Ex:
         // for (int i = 0; i < 50; i++) {
-        for (int i = 0; i < numLinhas; i++) {
+        for (int i = 0; i < 50; i++) {
             String[] campos = linhas[i].split(";");
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
@@ -80,6 +81,7 @@ public class LeituraArquivo {
             // pesquisa logradouro na lista
             // se não está inclui e guarda ref
             // se esta guarda ref
+            listaDeRuas.add(logradouro, nomeLog);
 
             // adiciona a ref o estado e complemento que recuperados visto acima
 

@@ -1,0 +1,25 @@
+ta, assim kskskk
+
+o carinha tava certo, é melhor a gente add na leitura de arquivo
+pq dai a gente já salva tudo dentro da lista
+depois a gente só faz o menu pra chamar de fato depois que tudo for salvo
+(ou seja, a gente cria depois daquele for gigantesco)
+
+na linha 84 do leitura de arquivo eu já coloquei oq salvaria na lista as infos, falta 
+tudo praticamente:
+   -terminar a double linked no lista ruas
+   - terminar a linked list na lista de sinalização 
+   - terminar a sinalização (acho que ta faltando algo)
+   - fazer o menu
+
+
+   oq ela pede:
+   (c) 1.5 pontos: Consulta da rua/av/trav com mais sinalizações registradas.
+(d) 2.0 pontos: Consulta do mês em que foram implantadas mais sinalizações por rua/av/trav.
+(e) 3.5 pontos: Navegação pelas rua/av/trav em ordem alfabética, isto é, avançar e retroceder,
+apresentando o número total de sinalizacões desta rua/av/trav e qual foi a primeira e a última
+sinalização registrada na rua.
+
+vamo ter que ter um contador, uma solução é fazer uma classe "ruas" que nem oq tem pra sinalização
+ai a gente conta quantas sinalizações tem.
+
