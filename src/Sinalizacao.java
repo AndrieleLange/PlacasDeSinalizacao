@@ -10,6 +10,15 @@ public class Sinalizacao {
     private int count = 0;//não parece certo pq não sria salvo em um array
     //private ---- lado;
     //private ---- localDeInstalacao;
+    
+    public Sinalizacao(String desc, LocalDate impl, int numI, int numF){
+        descricao = desc;
+        implantacao = impl;
+        numInicial = numI;
+        numFinal = numF;
+
+        count++;
+    }
 
 
     public String getDescricao() {
