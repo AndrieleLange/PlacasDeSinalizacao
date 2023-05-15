@@ -7,19 +7,18 @@ public class Sinalizacao {
     private LocalDate implantacao;
     private int numInicial;
     private int numFinal;
-    private int count = 0;//não parece certo pq não sria salvo em um array
-    //private ---- lado;
-    //private ---- localDeInstalacao;
-    
-    public Sinalizacao(String desc, LocalDate impl, int numI, int numF){
-        descricao = desc;
-        implantacao = impl;
-        numInicial = numI;
-        numFinal = numF;
+    private String lado;
+    private String localDeInstalacao;
 
-        count++;
+    public Sinalizacao(String descricao, LocalDate implantacao, int numInicial, int numFinal, String lado,
+            String localDeInstalacao) {
+        this.descricao = descricao;
+        this.implantacao = implantacao;
+        this.numInicial = numInicial;
+        this.numFinal = numFinal;
+        this.lado = lado;
+        this.localDeInstalacao = localDeInstalacao;
     }
-
 
     public String getDescricao() {
         return descricao;
@@ -33,7 +32,12 @@ public class Sinalizacao {
     public int getNumFinal() {
         return numFinal;
     }
-    public int getCount() {
-        return count;
+
+    public String getLado() {
+        return lado;
+    }
+
+    public String getLocalDeInstalacao() {
+        return localDeInstalacao;
     }
 }

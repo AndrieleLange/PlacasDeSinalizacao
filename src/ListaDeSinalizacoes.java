@@ -4,17 +4,39 @@ public class ListaDeSinalizacoes {
     private class Node {
         public Sinalizacao element;
         public Node next;
-        public Node header;
-        public Node taeil;
+        public Node(String element){
+            this.element = element;
+            next = null;
+        }
     }
-    private int count = 0;//não parece certo pq não sria salvo em um array
+
+    private Node head;
+    private Node taeil;
+    private Node current;
+    private int count = 0;
+
     private String descricao;
     private LocalDate implantacao;
     private int numInicial;
     private int numFinal;
-    //private ---- lado;
-    //private ---- localDeInstalacao;
+    private String lado;
+    private String localDeInstalacao;
 
+    
+
+    public ListaDeSinalizacoes(String descricao, LocalDate implantacao, int numInicial, int numFinal, String lado,
+            String localDeInstalacao) {
+                head = new Node(null);
+                taeil = new Node(null);
+                head.next = taeil;
+                taeil.next = head;
+        this.implantacao = implantacao;
+        this.numInicial = numInicial;
+        this.numFinal = numFinal;
+        this.lado = lado;
+        this.localDeInstalacao = localDeInstalacao;
+        count++;
+    }
     /**
      * // Métodos
 	add(sinalização)

@@ -4,7 +4,7 @@ public class LinkedListOfString {
     private class Node {
         public String element;
         public Node next;
-        public Node prev;
+        public Node prev;//doble linked list
         public Node(String element) {
             this.element = element;
             next = null;

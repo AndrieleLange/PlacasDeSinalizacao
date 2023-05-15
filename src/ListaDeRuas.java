@@ -1,31 +1,17 @@
 public class ListaDeRuas {
-	private Node header;
-	private Node trailer;
-	private Node current;//posição corrente
-	private int count;
 
-	private class Node {	
-		public Node prev;
-		public Node next;
-		public ListaDeSinalizacoes lista;
-		public String nomeDaRua;
-		public String idDaRua; //(Av, Rua, Trav, ...)
-		public Node(String rua, String id) {
-            nomeDaRua = rua;
-			idDaRua = id;
-            next = null;
-            prev = null;
-			//acho que tem que add aqui tmb a lista de sinalizações
-        }
-	}
+    private ListaSinalizacoes lista;
+    private String nomeDaRua;
+    private String idDaRua; //(Av, Rua, Trav, ...)
+    private LinkedListOfString list;
+    
 
-	public ListaDeRuas() {
-        header = new Node(null, null);
-        trailer = new Node(null, null);
-        header.next = trailer;
-        trailer.prev = header;
-        count = 0;
+	public ListaDeRuas(ListaSinalizacoes lista, String nomeDaRua, String idDaRua) {
+        this.lista = lista;
+        this.nomeDaRua = nomeDaRua;
+        this.idDaRua = idDaRua;
     }
+
 
 	public void add(String logradouro, String id) {
         Node n = new Node(logradouro, id);
