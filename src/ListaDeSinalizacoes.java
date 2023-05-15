@@ -1,70 +1,64 @@
 import java.time.LocalDate;
-
+/**
+ * aqui deve ser uma lista de encadeamento simples
+ * onde vamos salvar as informações de uma sinalização
+ * 
+ * ainda falta entender como que vamos linkar
+ * essa lista com a lista duplamente encadeada
+ */
 public class ListaDeSinalizacoes {
     private class Node {
         public Sinalizacao element;
         public Node next;
-        public Node(String element){
+        public Node(Sinalizacao element){
             this.element = element;
             next = null;
+        }
+        public Node(Sinalizacao element, Node next){
+            this.element = element;
+            this.next = next;
         }
     }
 
     private Node head;
-    private Node taeil;
+    private Node tail;
     private Node current;
-    private int count = 0;
+    private int count;
+   
 
-    private String descricao;
-    private LocalDate implantacao;
-    private int numInicial;
-    private int numFinal;
-    private String lado;
-    private String localDeInstalacao;
+    public ListaDeSinalizacoes() {//iniciar uma lista de sinalizações
+        head = null;
+        tail = null;
+        count = 0;
+    }
 
-    
-
-    public ListaDeSinalizacoes(String descricao, LocalDate implantacao, int numInicial, int numFinal, String lado,
-            String localDeInstalacao) {
-                head = new Node(null);
-                taeil = new Node(null);
-                head.next = taeil;
-                taeil.next = head;
-        this.implantacao = implantacao;
-        this.numInicial = numInicial;
-        this.numFinal = numFinal;
-        this.lado = lado;
-        this.localDeInstalacao = localDeInstalacao;
+    //acredito que aqui a gente não precisa se preocupar em add
+    //infos que são iguais
+    public void add(Sinalizacao sin){
+        Node n = new Node(sin);
+        if(head == null){
+            head = n;
+        } else{
+            tail.next = n;
+        }
+        tail = n;
         count++;
     }
-    /**
-     * // Métodos
-	add(sinalização)
-    */
+
 	public int size(){// retorna o total de sinalizações
         return count;
     } 
-    public void reset() {
-        current = header.next;
-    }
-     public String getDescricao() {
-            return descricao;
-        }
-        public LocalDate getImplantacao() {
-            return implantacao;
-        }
-        public int getNumInicial() {
-            return numInicial;
-        }
-        public int getNumFinal() {
-            return numFinal;
-        }
-        public int getCount() {
-            return count;
-        }
 
-    // public int getMes(int index){// retorna o mês de implantação da iésima sinalização 
-    //     int mes ;
+    //acredito que este seja o reset pedido
+    public void clear() {
+        head = null;
+        tail = null;
+        count = 0;
+    }  
+
+
+    // public LocalDate getMes(int index){// retorna o mês de implantação da iésima sinalização 
+    //     LocalDate mes;
     //     for(int i = 0; i< count; i++){
     //         //if()
 
@@ -74,18 +68,22 @@ public class ListaDeSinalizacoes {
     // }
 
     /**
-	
-	public LocalDate getDataImplantacao(int index){ // retorna data de implantação da iésima 
 
+	// Métodos
+	int getMes(index) // retorna o mês de implantação da iésima sinalização 
+
+	LocalDate getDataImplantacao(index) // retorna data de implantação da iésima 
 //sinalização, para depois comparar qual 
 // é maior ou menor
-    }
+
 	getMenorData() // retorna a data da primeira sinalização instalada 
 // (considerando esta lista)
 
 	getMaiorData() // retorna a data da última sinalização instalada 
 // (considerando esta lista)
 	
+reset()
+
 	next()
 }
 

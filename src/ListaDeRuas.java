@@ -1,20 +1,29 @@
 public class ListaDeRuas {
-
-    private ListaSinalizacoes lista;
-    private String nomeDaRua;
-    private String idDaRua; //(Av, Rua, Trav, ...)
-    private LinkedListOfString list;
-    
-
-	public ListaDeRuas(ListaSinalizacoes lista, String nomeDaRua, String idDaRua) {
-        this.lista = lista;
-        this.nomeDaRua = nomeDaRua;
-        this.idDaRua = idDaRua;
+/**
+ * mais um problema
+ * 
+ * não sei como que vamos fazer aquilo de fazer uma lista de sinalizações
+ * pra uma rua, tipo como fazemos uma condição?
+ */
+    private class Node{
+        public Rua element;
+        public Node next;
+        public Node prev;
+        public Node(Rua e) {
+            element = e;
+            next = null;
+            prev = null;
+        }
     }
 
+    private Node header;
+    private Node trailer;
+    private Node current;    
+    private int count;
 
-	public void add(String logradouro, String id) {
-        Node n = new Node(logradouro, id);
+
+	public void add(Rua r) {
+        Node n = new Node(r);
         n.next = trailer;
         n.prev = trailer.prev;
         trailer.prev.next = n;
