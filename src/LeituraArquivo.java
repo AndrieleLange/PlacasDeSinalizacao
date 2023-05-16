@@ -46,7 +46,7 @@ public class LeituraArquivo {
             int diaDataExtracao = dateTime.getDayOfMonth();
             int horaDataExtracao = dateTime.getHour();
             int minDataExtracao = dateTime.getMinute();
-
+            LocalDateTime lDate = LocalDateTime.of(mesDataExtracao, diaDataExtracao, horaDataExtracao, minDataExtracao, i);
             System.out.println("Data e hora extracao: " + diaDataExtracao + "/" + mesDataExtracao + "/" + anoDataExtracao + ", " + horaDataExtracao + ":" + minDataExtracao);
 
             String descricao = campos[1];
@@ -97,15 +97,16 @@ public class LeituraArquivo {
             String localInstalacao = "";
             if(campos.length>=13){
                 localInstalacao = campos[12];}
-            for (int j = 0; j < numLinhas; i++){
+           
                 ls.add(new Sinalizacao(descricao, null, i, i, lado, localInstalacao));
                 
-            }
+            
         
 
             System.out.println("Num inicial e final: " + numInicial + ", " + numFinal + "; "
                     + defronte + "; " + cruzamento + "; " + lado + "; " + fluxo + "; " + localInstalacao);
-            System.out.println("---------------------------------------> " + i);
+            System.out.println(ls.toString());
+            
         }
     }
 }

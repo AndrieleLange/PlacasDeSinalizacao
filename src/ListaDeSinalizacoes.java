@@ -54,6 +54,18 @@ public class ListaDeSinalizacoes {
         head = null;
         tail = null;
         count = 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        Node aux = head.next;
+        for (int i = 0; i < count; i++) {
+            s.append(aux.element);
+            s.append("\n");
+            aux = aux.next;
+        }
+        return s.toString();
     }  
 
 

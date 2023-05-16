@@ -45,5 +45,13 @@ public class Sinalizacao {
         return localDeInstalacao;
     }
 
+    @Override
+    public String toString() {
+        return "Sinalizacao [descricao=" + descricao + ", implantacao=" + implantacao + ", numInicial=" + numInicial
+                + ", numFinal=" + numFinal + ", lado=" + lado + ", localDeInstalacao=" + localDeInstalacao + "]";
+    }
+
+
+
     //Métodos get e toString (para data de implantação, imprimir dd/mm/aa)
 }
