@@ -13,9 +13,9 @@ import java.time.format.DateTimeFormatter;
 public class LeituraArquivo {
 
     public static void main(String[] args) throws ParseException {
-        ListaDeRuas listaDeRuas = new ListaDeRuas();
+        ListaDeSinalizacoes ls = new ListaDeSinalizacoes();
 
-        String linhas[] = new String[500];
+        String linhas[] = new String[110000];
         int numLinhas = 0;
 
         Path filePath = Paths.get("dataEditado.csv");
@@ -36,8 +36,8 @@ public class LeituraArquivo {
         // Mude numLinhas para algum numero pequeno para executar testes mais rapidamente.
         // Ex:
         // for (int i = 0; i < 50; i++) {
-        for (int i = 0; i < 50; i++) {
-            String[] campos = linhas[i].split(";");
+        for (int i = 0; i < numLinhas; i++) {
+            String[] campos = linhas[50].split(";");
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
             LocalDateTime dateTime = LocalDateTime.parse(campos[0], formatter);
@@ -54,8 +54,6 @@ public class LeituraArquivo {
             String complemento = campos[3];
 
             System.out.println("Descricao: " + descricao);
-            
-            // esses vão para a lista simplesmente encadeada
             System.out.println("Estado: " + estado + ", " + complemento);
 
             int anoImplantacao = 0;
@@ -76,14 +74,7 @@ public class LeituraArquivo {
 
             String logradouro = campos[5].split(" ", 2)[0];
             String nomeLog = campos[5].split(" ", 2)[1];
-          
             System.out.println("Logradouro: " + logradouro + " " + nomeLog);
-            // pesquisa logradouro na lista
-            // se não está inclui e guarda ref
-            // se esta guarda ref
-            listaDeRuas.add(logradouro, nomeLog);
-
-            // adiciona a ref o estado e complemento que recuperados visto acima
 
             double numInicial;
             if(campos[6].equals(""))
@@ -104,8 +95,13 @@ public class LeituraArquivo {
             if(campos.length>=12)
                 fluxo = campos[11];
             String localInstalacao = "";
-            if(campos.length>=13)
-                localInstalacao = campos[12];
+            if(campos.length>=13){
+                localInstalacao = campos[12];}
+            for (int j = 0; j < numLinhas; i++){
+                ls.add(new Sinalizacao(descricao, null, i, i, lado, localInstalacao));
+                
+            }
+        
 
             System.out.println("Num inicial e final: " + numInicial + ", " + numFinal + "; "
                     + defronte + "; " + cruzamento + "; " + lado + "; " + fluxo + "; " + localInstalacao);

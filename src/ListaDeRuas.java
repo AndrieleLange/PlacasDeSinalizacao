@@ -49,14 +49,14 @@ public class ListaDeRuas {
 
 	// next()
 	//não entendi pra que isso serve
-	public String next() {
+	/*public String next() {
         if (current != trailer) {
-            String ruaAVTravSla = current.nomeDaRua;
+            String ruaAVTravSla = current.next();
             current = current.next;
             return ruaAVTravSla;
         }
         return null;
-    } 
+    } */
 
 	// prev()
 

@@ -9,8 +9,8 @@ public class Sinalizacao {
     
     private String descricao;
     private LocalDate implantacao;
-    private int numInicial;
-    private int numFinal;
+    private double numInicial;
+    private double numFinal;
     private String lado;
     private String localDeInstalacao;
 
@@ -30,10 +30,10 @@ public class Sinalizacao {
     public LocalDate getImplantacao() {
         return implantacao;
     }
-    public int getNumInicial() {
+    public double getNumInicial() {
         return numInicial;
     }
-    public int getNumFinal() {
+    public double getNumFinal() {
         return numFinal;
     }
 
