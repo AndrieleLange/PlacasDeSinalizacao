@@ -13,7 +13,13 @@ import java.time.format.DateTimeFormatter;
 public class LeituraArquivo {
 
     public static void main(String[] args) throws ParseException {
+        //iniciando as listas
         ListaDeSinalizacoes ls = new ListaDeSinalizacoes();
+        ListaDeRuas lr = new ListaDeRuas();
+
+
+
+
 
         String linhas[] = new String[110000];
         int numLinhas = 0;
@@ -33,10 +39,17 @@ public class LeituraArquivo {
             System.err.format("Erro na leitura do arquivo: ", e.getMessage());
         }
 
+
+
+
+
+
+
+
         // Mude numLinhas para algum numero pequeno para executar testes mais rapidamente.
         // Ex:
         // for (int i = 0; i < 50; i++) {
-        for (int i = 0; i < numLinhas; i++) {
+        for (int i = 0; i < 50; i++) {
             String[] campos = linhas[50].split(";");
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
@@ -48,13 +61,23 @@ public class LeituraArquivo {
             int minDataExtracao = dateTime.getMinute();
             LocalDateTime lDate = LocalDateTime.of(mesDataExtracao, diaDataExtracao, horaDataExtracao, minDataExtracao, i);
             System.out.println("Data e hora extracao: " + diaDataExtracao + "/" + mesDataExtracao + "/" + anoDataExtracao + ", " + horaDataExtracao + ":" + minDataExtracao);
+            //era pra isso ir para a sinalização tmb
 
-            String descricao = campos[1];
-            String estado = campos[2];
-            String complemento = campos[3];
+
+            String descricao = campos[1];//vai para sinalização
+            String estado = campos[2];//vai para a sinalização
+            String complemento = campos[3]; //R-24A - N/P SEMÁFORO vai para a sinalização
 
             System.out.println("Descricao: " + descricao);
             System.out.println("Estado: " + estado + ", " + complemento);
+
+
+
+
+
+
+
+
 
             int anoImplantacao = 0;
             int mesImplantacao = 0;
@@ -64,7 +87,7 @@ public class LeituraArquivo {
                     formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 else
                     formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate date = LocalDate.parse(campos[4], formatter);
+                LocalDate date = LocalDate.parse(campos[4], formatter);//aqui ta o local date que a gente tava procurando
                 anoImplantacao = date.getYear();
                 mesImplantacao = date.getMonthValue();
                 diaImplantacao = date.getDayOfMonth();
@@ -72,6 +95,17 @@ public class LeituraArquivo {
             
             System.out.println("Data implantacao: " + diaImplantacao + "/" + mesImplantacao + "/" + anoImplantacao);
 
+
+
+
+
+
+
+
+
+
+
+            //isso vai para rua
             String logradouro = campos[5].split(" ", 2)[0];
             String nomeLog = campos[5].split(" ", 2)[1];
             System.out.println("Logradouro: " + logradouro + " " + nomeLog);
