@@ -25,5 +25,9 @@ public class Rua {
         return idDaRua;
     }
 
+    public void setLista(Sinalizacao sinal){
+        this.lista.add(sinal);
+    }
+
     
 }

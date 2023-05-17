@@ -30,7 +30,7 @@ public class ListaDeRuas {
         Node aux = header.next;
         
         while (aux != trailer) {
-            if (aux.element.equals(element)) {
+            if (aux.element.getNomeDaRua().equals(element.getNomeDaRua())) {
                 return aux;
             }
             aux = aux.next;
@@ -40,8 +40,17 @@ public class ListaDeRuas {
     }  
 
 
+    	// insereOrdenado(idDaRua, nome da rua, Sinalizacao) // procura pela rua, se já tem 
+	// 			// insere a nova sinalização; se não tem, cria um novo nodo
+	// usar o contains aqui
+
+    //usando como add()
     public void orderedAdd(Rua element)  { 
         Node aux = containsElement(element); // verifica se ja contem element para não inserir duplicado
+        if (aux != null){
+            aux.setLista(element.)
+            //element.getLista() adicionar a sinalização na lista do element
+        }
         if (aux == null) {  // se nao contem element, insere
             Node n = new Node(element);
 
@@ -53,14 +62,14 @@ public class ListaDeRuas {
                 header.next = n;
 
             } 
-            else if (element.compareTo(header.next.element)<0) { 
+            else if (element.getNomeDaRua().compareTo(header.next.element.getNomeDaRua())<0) { 
                 // se for menor que o primeiro, insere no inicio
                 n.next = header.next;
                 n.prev = header;
                 header.next = n;
                 n.next.prev = n;
             }
-            else if (element.compareTo(trailer.prev.element)>0) {
+            else if (element.getNomeDaRua().compareTo(trailer.prev.element.getNomeDaRua())>0) {
                 // se for maior que o ultimo, insere no final
                 n.next = trailer;
                 n.prev = trailer.prev;
@@ -72,7 +81,7 @@ public class ListaDeRuas {
                 aux = header.next;
                 boolean inseriu=false;
                 while (aux!=trailer && !inseriu) {
-                    if (element.compareTo(aux.element)<0) {
+                    if (element.getNomeDaRua().compareTo(aux.element.getNomeDaRua())<0) {
                         inseriu = true;
                         n.next = aux;
                         n.prev=aux.prev;
@@ -85,17 +94,7 @@ public class ListaDeRuas {
             count++;
         }
     }
-	public void add(Rua r) {
-        Node n = new Node(r);
-        n.next = trailer;
-        n.prev = trailer.prev;
-        trailer.prev.next = n;
-        trailer.prev = n;
-        count++;
-    }
 
-	
-	// reset()
 	/**
      * Inicializa o current na primeira posicao (para percorrer do inicio para o fim).
      */
@@ -103,12 +102,8 @@ public class ListaDeRuas {
         current = header.next;
     }
 
-	// contains(nome da rua)	// fazer primeiro pra usar depois
 
 
-	// insereOrdenado(idDaRua, nome da rua, Sinalizacao) // procura pela rua, se já tem 
-	// 			// insere a nova sinalização; se não tem, cria um novo nodo
-	// usar o contains aqui
 
 	// next()
 	//não entendi pra que isso serve
