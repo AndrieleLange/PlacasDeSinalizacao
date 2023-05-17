@@ -5,6 +5,9 @@ import java.time.LocalDate;
  * 
  * ainda falta entender como que vamos linkar
  * essa lista com a lista duplamente encadeada
+ * 
+ * falta um next e um um troço pra retroceder, pq ela quer
+ * que a gente possa entrar em um modo navegação
  */
 public class ListaDeSinalizacoes {
     private class Node {
@@ -27,8 +30,9 @@ public class ListaDeSinalizacoes {
    
 
     public ListaDeSinalizacoes() {//iniciar uma lista de sinalizações
-        head = null;
-        tail = null;
+        head = new Node(null);
+        tail = new Node(null);
+        head.next = tail;
         count = 0;
     }
 
