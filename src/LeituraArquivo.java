@@ -139,7 +139,7 @@ public class LeituraArquivo {
                     }
                     
                 }             
-            
+                System.out.println(lr.toString());
                 
             }
             
