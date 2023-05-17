@@ -15,6 +15,10 @@ public class Rua {
         return lista;
     }
 
+    public Sinalizacao getSinalizacao(){
+        return lista.get1sinal();
+    }
+
 
     public String getNomeDaRua() {
         return nomeDaRua;
@@ -25,6 +29,7 @@ public class Rua {
         return idDaRua;
     }
 
+    //adiciona na lista a sinalização
     public void setLista(Sinalizacao sinal){
         this.lista.add(sinal);
     }

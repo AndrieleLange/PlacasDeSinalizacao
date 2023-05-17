@@ -32,6 +32,10 @@ public class ListaDeSinalizacoes {
         count = 0;
     }
 
+    public Sinalizacao getCurrent(){
+        return head.next.element;
+    }
+
     //acredito que aqui a gente não precisa se preocupar em add
     //infos que são iguais
     public void add(Sinalizacao sin){

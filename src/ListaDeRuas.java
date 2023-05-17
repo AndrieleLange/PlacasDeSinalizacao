@@ -48,8 +48,9 @@ public class ListaDeRuas {
     public void orderedAdd(Rua element)  { 
         Node aux = containsElement(element); // verifica se ja contem element para não inserir duplicado
         if (aux != null){
-            aux.setLista(element.)
-            //element.getLista() adicionar a sinalização na lista do element
+            //a gente tem que pegar a posição onde tá o elemento 
+            aux.element.setLista(element.getSinalizacao());//pegar a sinalização apenas
+            //adicionar a sinalização na lista do element
         }
         if (aux == null) {  // se nao contem element, insere
             Node n = new Node(element);
