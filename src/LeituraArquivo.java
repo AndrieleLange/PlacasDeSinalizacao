@@ -131,18 +131,25 @@ public class LeituraArquivo {
             String localInstalacao = "";
             if(campos.length>=13){
                 localInstalacao = campos[12];}
-           
-                ls.add(new Sinalizacao(descricao, null, i, i, lado, localInstalacao));
+
+                for (int j = 0; j < numLinhas; j++) {
+                    ls.add(new Sinalizacao(descricao, null, lado, localInstalacao));
+                    for(int k = j; k < numLinhas; k++){
+                    lr.orderedAdd(new Rua(ls, fluxo, localInstalacao));
+                    }
+                    
+                }             
+            
                 
+            }
+            
             
         
-
-            System.out.println("Num inicial e final: " + numInicial + ", " + numFinal + "; "
-                    + defronte + "; " + cruzamento + "; " + lado + "; " + fluxo + "; " + localInstalacao);
-            System.out.println(ls.toString());
+           
+            
             
         }
     }
-}
+
 
 

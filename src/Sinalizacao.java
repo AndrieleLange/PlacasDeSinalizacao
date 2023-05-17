@@ -9,17 +9,13 @@ public class Sinalizacao {
     
     private String descricao;
     private LocalDate implantacao;
-    private double numInicial;
-    private double numFinal;
     private String lado;
     private String localDeInstalacao;
 
-    public Sinalizacao(String descricao, LocalDate implantacao, int numInicial, int numFinal, String lado,
+    public Sinalizacao(String descricao, LocalDate implantacao,String lado,
             String localDeInstalacao) {
         this.descricao = descricao;
         this.implantacao = implantacao;
-        this.numInicial = numInicial;
-        this.numFinal = numFinal;
         this.lado = lado;
         this.localDeInstalacao = localDeInstalacao;
     }
@@ -29,12 +25,6 @@ public class Sinalizacao {
     }
     public LocalDate getImplantacao() {
         return implantacao;
-    }
-    public double getNumInicial() {
-        return numInicial;
-    }
-    public double getNumFinal() {
-        return numFinal;
     }
 
     public String getLado() {
@@ -47,8 +37,7 @@ public class Sinalizacao {
 
     @Override
     public String toString() {
-        return "Sinalizacao [descricao=" + descricao + ", implantacao=" + implantacao + ", numInicial=" + numInicial
-                + ", numFinal=" + numFinal + ", lado=" + lado + ", localDeInstalacao=" + localDeInstalacao + "]";
+        return "Sinalizacao [descricao=" + descricao + ", implantacao=" + implantacao  + ", lado=" + lado + ", localDeInstalacao=" + localDeInstalacao + "]";
     }
 
 

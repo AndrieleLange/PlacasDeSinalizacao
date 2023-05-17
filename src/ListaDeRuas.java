@@ -104,23 +104,27 @@ public class ListaDeRuas {
     }
 
 
+    public String toString() {
+        Rua teste = current.element;
+        StringBuilder sb = new StringBuilder();
+        Node current = header.next;
+        while (current != null) {
+            sb.append(current.element).append(teste.toString());
+            current = current.next;
+        }
+        return sb.toString();
+    }
 
 
 	// next()
 	//não entendi pra que isso serve
-	/*public String next() {
-        if (current != trailer) {
-            String ruaAVTravSla = current.next();
-            current = current.next;
-            return ruaAVTravSla;
-        }
-        return null;
-    } */
 
+        
+    } 
 	// prev()
 
 	// String getRuaComMaisSinalizacoes ()
 	
 	
 	// toString
-}
+

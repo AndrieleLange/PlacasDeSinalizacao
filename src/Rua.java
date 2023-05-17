@@ -35,5 +35,11 @@ public class Rua {
         this.lista.add(sinal);
     }
 
+
+    @Override
+    public String toString() {
+        return "Rua [lista=" + lista.toString() + ", nomeDaRua=" + nomeDaRua + ", idDaRua=" + idDaRua + "]";
+    }
+
     
 }

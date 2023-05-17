@@ -64,10 +64,11 @@ public class ListaDeSinalizacoes {
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
+        Sinalizacao teste = current.element;
         Node aux = head.next;
         for (int i = 0; i < count; i++) {
             s.append(aux.element);
-            s.append("\n");
+            s.append( teste.toString());
             aux = aux.next;
         }
         return s.toString();
