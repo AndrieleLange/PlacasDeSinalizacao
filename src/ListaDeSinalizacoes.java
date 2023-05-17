@@ -32,7 +32,8 @@ public class ListaDeSinalizacoes {
         count = 0;
     }
 
-    public Sinalizacao getCurrent(){
+    //pra pegar a primeira sinalização (que  no caso seria única)
+    public Sinalizacao get1sinal(){
         return head.next.element;
     }
 

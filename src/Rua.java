@@ -15,6 +15,7 @@ public class Rua {
         return lista;
     }
 
+    //pra poder retornar a sinalização e salvar caso já tenha na lista 
     public Sinalizacao getSinalizacao(){
         return lista.get1sinal();
     }
