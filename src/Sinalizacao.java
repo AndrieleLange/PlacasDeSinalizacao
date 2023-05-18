@@ -13,9 +13,11 @@ public class Sinalizacao {
     private LocalDate implantacao;
     private String lado;
     private String localDeInstalacao;
+   
 
-    public Sinalizacao(String descricao, LocalDate implantacao,String lado,
-            String localDeInstalacao, String logradouro,String id) {
+
+    public Sinalizacao(String descricao,String lado,
+            String localDeInstalacao, String logradouro,String id,LocalDate implantacao) {
         this.descricao = descricao;
         this.implantacao = implantacao;
         this.lado = lado;
@@ -49,7 +51,7 @@ public class Sinalizacao {
 
     @Override
     public String toString() {
-        return "\n Sinalizacao:" + descricao + " implantacao: " + implantacao  + ", lado: " + lado + ", localDeInstalacao: " + localDeInstalacao +"\n" ;
+        return "\n Data de implantação: " +implantacao+ "\n Sinalizacao:" + descricao + ", lado: " + lado + ", localDeInstalacao: " + localDeInstalacao +"\n" ;
     }
 
 

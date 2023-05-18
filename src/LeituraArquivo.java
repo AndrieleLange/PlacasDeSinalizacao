@@ -52,35 +52,25 @@ public class LeituraArquivo {
         for (int i = 0; i <numLinhas; i++) {
             String[] campos = linhas[i].split(";");
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-            LocalDateTime dateTime = LocalDateTime.parse(campos[0], formatter);
-            int anoDataExtracao = dateTime.getYear();
-            int mesDataExtracao = dateTime.getMonthValue();
-            int diaDataExtracao = dateTime.getDayOfMonth();
-            int horaDataExtracao = dateTime.getHour();
-            int minDataExtracao = dateTime.getMinute();
-
-            
-
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
             String descricao = campos[1];//vai para sinalização
             String estado = campos[2];//vai para a sinalização
             String complemento = campos[3]; //R-24A - N/P SEMÁFORO vai para a sinalização
 
-            int anoImplantacao = 0;
-            int mesImplantacao = 0;
-            int diaImplantacao = 0;            
-            if(!campos[4].equals("")) {
-                if(campos[4].contains("-"))
-                    formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                else
-                    formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            int anoImplantacao = 1;
+            int mesImplantacao = 1;
+            int diaImplantacao = 1;            
+            
+                if(campos[4].contains("/")){
+                    
                 LocalDate date = LocalDate.parse(campos[4], formatter);
                 anoImplantacao = date.getYear();
                 mesImplantacao = date.getMonthValue();
                 diaImplantacao = date.getDayOfMonth();
+                
             }
-
+    LocalDate data = LocalDate.of(anoImplantacao, mesImplantacao, diaImplantacao);
             
             //isso vai para rua
             String logradouro = campos[5].split(" ", 2)[0];
@@ -111,7 +101,7 @@ public class LeituraArquivo {
 
                     
                     
-                    lr.orderedAdd(new Rua (new ListaDeSinalizacoes(), logradouro, nomeLog),new Sinalizacao(descricao, null, lado, localInstalacao, nomeLog,logradouro));
+                    lr.orderedAdd(new Rua (new ListaDeSinalizacoes(), logradouro, nomeLog),new Sinalizacao(descricao, lado, localInstalacao, nomeLog,logradouro,data));
                     
                     
                 }             
