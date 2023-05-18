@@ -54,52 +54,45 @@ public class ListaDeRuas {
 	// usar o contains aqui
 
     //usando como add()
-    public void orderedAdd(Rua element)  { 
-        
-        Node aux = containsElement(element); // verifica se ja contem element para não inserir duplicado
-        
-        if (aux == null) {  // se nao contem element, insere
+    public void orderedAdd(Rua element) {
+        Node aux = containsElement(element); // verifica se já contém o elemento para não inserir duplicado
+    
+        if (aux == null) {  // se não contém o elemento, insere
             Node n = new Node(element);
-
+    
             if (header.next == trailer) { 
                 // se a lista está vazia
                 n.prev = header;
                 n.next = trailer;
                 trailer.prev = n;
                 header.next = n;
-
             } 
-            else if (element.getNomeDaRua().compareTo(header.next.element.getNomeDaRua())<0) { 
-                // se for menor que o primeiro, insere no inicio
+            else if (element.getNomeDaRua().compareTo(header.next.element.getNomeDaRua()) < 0) { 
+                // se for menor que o primeiro, insere no início
                 n.next = header.next;
                 n.prev = header;
                 header.next = n;
                 n.next.prev = n;
             }
-            else if (element.getNomeDaRua().compareTo(trailer.prev.element.getNomeDaRua())>0) {
-                // se for maior que o ultimo, insere no final
+            else if (element.getNomeDaRua().compareTo(trailer.prev.element.getNomeDaRua()) >= 0) {
+                // se for maior ou igual ao último, insere no final
                 n.next = trailer;
                 n.prev = trailer.prev;
                 trailer.prev.next = n;
                 trailer.prev = n;
             }
             else {
-                // senao procura a posicao correta para insercao
+                // senão, procura a posição correta para inserção
                 aux = header.next;
-                boolean inseriu=false;
-                while (aux!=trailer && !inseriu) {
-                    if (element.getNomeDaRua().compareTo(aux.element.getNomeDaRua())<0) {
-                        inseriu = true;
-                        n.next = aux;
-                        n.prev=aux.prev;
-                        aux.prev.next = n;
-                        aux.prev = n;
-                    }
+                while (aux != trailer && element.getNomeDaRua().compareTo(aux.element.getNomeDaRua()) >= 0) {
                     aux = aux.next;
                 }
+                n.next = aux;
+                n.prev = aux.prev;
+                aux.prev.next = n;
+                aux.prev = n;
             }
             count++;
-            
         }
     }
 
@@ -112,13 +105,12 @@ public class ListaDeRuas {
 
 
     public String toString() {
-       
         StringBuilder sb = new StringBuilder();
-        Node current = header.next;
-        while (current != null) {
-            Rua teste = current.element;
+        Node aux = header.next;
+        while (aux != trailer) {
+            Rua teste = aux.element;
             sb.append(teste.toString());
-            current = current.next;
+            aux = aux.next;
         }
         return sb.toString();
     }
