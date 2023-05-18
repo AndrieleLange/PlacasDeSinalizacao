@@ -76,7 +76,7 @@ public String toString() {
     
     while (aux != null) {
         Sinalizacao tt = aux.element;
-        s.append(tt.toString());
+        s.append("\n"+tt.toString());
         aux = aux.next;
     }
     

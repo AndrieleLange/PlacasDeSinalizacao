@@ -16,10 +16,7 @@ public class Rua {
     }
 
     //pra poder retornar a sinalização e salvar caso já tenha na lista 
-    public Sinalizacao getSinalizacao(){
-        return lista.get1sinal();
-    }
-
+    
 
     public String getNomeDaRua() {
         return nomeDaRua;
@@ -31,14 +28,18 @@ public class Rua {
     }
 
     //adiciona na lista a sinalização
-    public void setLista(Sinalizacao sinal){
+    public void addLista(Sinalizacao sinal){
+        if(idDaRua.equals(sinal.getlogradouro()) && nomeDaRua.equals(sinal.getId()))
+
         this.lista.add(sinal);
     }
 
 
     @Override
     public String toString() {
-        return "Rua [lista=" + lista.toString() + ", nomeDaRua=" + nomeDaRua + ", idDaRua=" + idDaRua + "]";
+        return "\n================================================================================================================"
+         +"\n"+ nomeDaRua + "." + idDaRua + " "+ lista.toString()+
+         "\n==========================================================================================================================";
     }
 
     

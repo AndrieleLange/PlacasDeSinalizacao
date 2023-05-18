@@ -6,18 +6,22 @@ import java.time.LocalDate;
  */
 
 public class Sinalizacao {
-    
+
+    private String id;
+    private String logradouro;
     private String descricao;
     private LocalDate implantacao;
     private String lado;
     private String localDeInstalacao;
 
     public Sinalizacao(String descricao, LocalDate implantacao,String lado,
-            String localDeInstalacao) {
+            String localDeInstalacao, String logradouro,String id) {
         this.descricao = descricao;
         this.implantacao = implantacao;
         this.lado = lado;
         this.localDeInstalacao = localDeInstalacao;
+        this.logradouro = logradouro;
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -35,9 +39,17 @@ public class Sinalizacao {
         return localDeInstalacao;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getlogradouro(){
+        return logradouro;
+    }
+
     @Override
     public String toString() {
-        return "Sinalizacao [descricao=" + descricao + ", implantacao=" + implantacao  + ", lado=" + lado + ", localDeInstalacao=" + localDeInstalacao + "]";
+        return "\n Sinalizacao:" + descricao + " implantacao: " + implantacao  + ", lado: " + lado + ", localDeInstalacao: " + localDeInstalacao +"\n" ;
     }
 
 
