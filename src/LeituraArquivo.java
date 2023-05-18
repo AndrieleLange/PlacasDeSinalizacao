@@ -52,6 +52,14 @@ public class LeituraArquivo {
         for (int i = 0; i <numLinhas; i++) {
             String[] campos = linhas[i].split(";");
 
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+            LocalDateTime dateTime = LocalDateTime.parse(campos[0], formatter);
+            int anoDataExtracao = dateTime.getYear();
+            int mesDataExtracao = dateTime.getMonthValue();
+            int diaDataExtracao = dateTime.getDayOfMonth();
+            int horaDataExtracao = dateTime.getHour();
+            int minDataExtracao = dateTime.getMinute();
+
             
 
 
@@ -59,31 +67,21 @@ public class LeituraArquivo {
             String estado = campos[2];//vai para a sinalização
             String complemento = campos[3]; //R-24A - N/P SEMÁFORO vai para a sinalização
 
+            int anoImplantacao = 0;
+            int mesImplantacao = 0;
+            int diaImplantacao = 0;            
+            if(!campos[4].equals("")) {
+                if(campos[4].contains("-"))
+                    formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                else
+                    formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate date = LocalDate.parse(campos[4], formatter);
+                anoImplantacao = date.getYear();
+                mesImplantacao = date.getMonthValue();
+                diaImplantacao = date.getDayOfMonth();
+            }
+
             
-
-
-
-
-
-
-
-
-
-                      
-            
-            
-           
-
-
-
-
-
-
-
-
-
-
-
             //isso vai para rua
             String logradouro = campos[5].split(" ", 2)[0];
             String nomeLog = campos[5].split(" ", 2)[1];
