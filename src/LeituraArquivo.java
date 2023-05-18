@@ -50,18 +50,9 @@ public class LeituraArquivo {
         // Ex:
         // for (int i = 0; i < 50; i++) {
         for (int i = 0; i < 50; i++) {
-            String[] campos = linhas[50].split(";");
+            String[] campos = linhas[12].split(";");
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-            LocalDateTime dateTime = LocalDateTime.parse(campos[0], formatter);
-            int anoDataExtracao = dateTime.getYear();
-            int mesDataExtracao = dateTime.getMonthValue();
-            int diaDataExtracao = dateTime.getDayOfMonth();
-            int horaDataExtracao = dateTime.getHour();
-            int minDataExtracao = dateTime.getMinute();
-            LocalDateTime lDate = LocalDateTime.of(mesDataExtracao, diaDataExtracao, horaDataExtracao, minDataExtracao, i);
-            System.out.println("Data e hora extracao: " + diaDataExtracao + "/" + mesDataExtracao + "/" + anoDataExtracao + ", " + horaDataExtracao + ":" + minDataExtracao);
-            //era pra isso ir para a sinalização tmb
+            
 
 
             String descricao = campos[1];//vai para sinalização
@@ -79,22 +70,9 @@ public class LeituraArquivo {
 
 
 
-            int anoImplantacao = 0;
-            int mesImplantacao = 0;
-            int diaImplantacao = 0;            
-            if(!campos[4].equals("")) {
-                if(campos[4].contains("-"))
-                    formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                else
-                    formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate date = LocalDate.parse(campos[4], formatter);//aqui ta o local date que a gente tava procurando
-                anoImplantacao = date.getYear();
-                mesImplantacao = date.getMonthValue();
-                diaImplantacao = date.getDayOfMonth();
-            }
             
-            System.out.println("Data implantacao: " + diaImplantacao + "/" + mesImplantacao + "/" + anoImplantacao);
-
+            
+            
 
 
 
@@ -132,22 +110,25 @@ public class LeituraArquivo {
             if(campos.length>=13){
                 localInstalacao = campos[12];}
 
-                    ls.add(new Sinalizacao(descricao, null, lado, localInstalacao));
                     
-                    lr.orderedAdd(new Rua(ls, fluxo, localInstalacao));
+                    ls.add(new Sinalizacao(descricao, null, lado, localInstalacao));
+                    lr.orderedAdd(new Rua(ls, logradouro, nomeLog));
+
+                    
                     
                     
                 }             
                 System.out.println(lr.toString());
                 
             }
-            
-            
-        
-           
-            
-            
+
+    @Override
+    public String toString() {
+        return "LeituraArquivo []";
+    }
+                
         }
+    
     
 
 

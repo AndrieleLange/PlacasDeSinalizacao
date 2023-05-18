@@ -37,7 +37,7 @@ public class Sinalizacao {
 
     @Override
     public String toString() {
-        return "Sinalizacao [descricao=" + descricao + ", implantacao=" + implantacao  + ", lado=" + lado + ", localDeInstalacao=" + localDeInstalacao + "]";
+        return "\n Sinalizacao: " + descricao + ", implantacao: " + implantacao  + ", lado: " + lado + ", localDeInstalacao: " + localDeInstalacao + " ";
     }
 
 

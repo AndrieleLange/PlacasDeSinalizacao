@@ -38,7 +38,9 @@ public class Rua {
 
     @Override
     public String toString() {
-        return "Rua [lista=" + lista.toString() + ", nomeDaRua=" + nomeDaRua + ", idDaRua=" + idDaRua + "]";
+        return "\n =========================================================================================="+
+        "\n Rua:  " + nomeDaRua + "." + idDaRua + " Sinalizações: " + lista.toString() + 
+        "  ==================================================================================================";
     }
 
     

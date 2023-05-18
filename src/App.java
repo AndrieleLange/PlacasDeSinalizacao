@@ -6,8 +6,11 @@ public class App {
         Rua rU = new Rua(ts, "av sss", "err");
         ListaDeRuas r = new ListaDeRuas();
         r.orderedAdd(rU);
-        System.out.println();
-        System.out.println("\n"+r.toString());
+        
+
+        LeituraArquivo l = new LeituraArquivo();
+
+        System.out.println(l.toString());
       
         
     }
