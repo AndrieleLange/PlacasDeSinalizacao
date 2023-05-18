@@ -132,11 +132,10 @@ public class LeituraArquivo {
             if(campos.length>=13){
                 localInstalacao = campos[12];}
 
-                for (int j = 0; j < numLinhas; j++) {
                     ls.add(new Sinalizacao(descricao, null, lado, localInstalacao));
-                    for(int k = j; k < numLinhas; k++){
+                    
                     lr.orderedAdd(new Rua(ls, fluxo, localInstalacao));
-                    }
+                    
                     
                 }             
                 System.out.println(lr.toString());
@@ -149,7 +148,7 @@ public class LeituraArquivo {
             
             
         }
-    }
+    
 
 
 

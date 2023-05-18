@@ -26,6 +26,15 @@ public class ListaDeRuas {
 
     
   
+    public ListaDeRuas() {
+        header = new Node(null);
+        trailer = new Node(null);
+        header.next = trailer;
+        trailer.prev = header;
+        count = 0;
+    }
+
+
     private Node containsElement(Rua element) {
         Node aux = header.next;
         
@@ -46,12 +55,9 @@ public class ListaDeRuas {
 
     //usando como add()
     public void orderedAdd(Rua element)  { 
+        
         Node aux = containsElement(element); // verifica se ja contem element para não inserir duplicado
-        if (aux != null){
-            //a gente tem que pegar a posição onde tá o elemento 
-            aux.element.setLista(element.getSinalizacao());//pegar a sinalização apenas
-            //adicionar a sinalização na lista do element
-        }
+        
         if (aux == null) {  // se nao contem element, insere
             Node n = new Node(element);
 
@@ -93,6 +99,7 @@ public class ListaDeRuas {
                 }
             }
             count++;
+            
         }
     }
 
@@ -105,11 +112,12 @@ public class ListaDeRuas {
 
 
     public String toString() {
-        Rua teste = current.element;
+       
         StringBuilder sb = new StringBuilder();
         Node current = header.next;
         while (current != null) {
-            sb.append(current.element).append(teste.toString());
+            Rua teste = current.element;
+            sb.append(teste.toString());
             current = current.next;
         }
         return sb.toString();

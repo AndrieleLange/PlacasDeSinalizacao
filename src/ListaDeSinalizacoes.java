@@ -30,9 +30,8 @@ public class ListaDeSinalizacoes {
    
 
     public ListaDeSinalizacoes() {//iniciar uma lista de sinalizações
-        head = new Node(null);
-        tail = new Node(null);
-        head.next = tail;
+        head = null;
+        tail = null;
         count = 0;
     }
 
@@ -49,10 +48,15 @@ public class ListaDeSinalizacoes {
             head = n;
         } else{
             tail.next = n;
+        
         }
         tail = n;
         count++;
     }
+
+
+
+    
 
 	public int size(){// retorna o total de sinalizações
         return count;
@@ -65,18 +69,19 @@ public class ListaDeSinalizacoes {
         count = 0;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        Sinalizacao teste = current.element;
-        Node aux = head.next;
-        for (int i = 0; i < count; i++) {
-            s.append(aux.element);
-            s.append( teste.toString());
-            aux = aux.next;
-        }
-        return s.toString();
-    }  
+@Override
+public String toString() {
+    StringBuilder s = new StringBuilder();
+    Node aux = head;
+    
+    while (aux != null) {
+        Sinalizacao tt = aux.element;
+        s.append(tt.toString());
+        aux = aux.next;
+    }
+    
+    return s.toString();
+} 
 
 
     // public LocalDate getMes(int index){// retorna o mês de implantação da iésima sinalização 

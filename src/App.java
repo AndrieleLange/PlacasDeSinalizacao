@@ -3,7 +3,12 @@ public class App {
         Sinalizacao t = new Sinalizacao("swdewe", null, "n232", "null");
         ListaDeSinalizacoes ts = new ListaDeSinalizacoes();
         ts.add(t);
-        System.out.println(t.toString());
+        Rua rU = new Rua(ts, "av sss", "err");
+        ListaDeRuas r = new ListaDeRuas();
+        r.orderedAdd(rU);
+        System.out.println();
+        System.out.println("\n"+r.toString());
+      
         
     }
 
