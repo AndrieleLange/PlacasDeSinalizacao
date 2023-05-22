@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class Sinalizacao {
 
-    private String id;
+    private String nomeRua;
     private String logradouro;
     private String descricao;
     private LocalDate implantacao;
@@ -13,13 +13,13 @@ public class Sinalizacao {
 
 
     public Sinalizacao(String descricao,String lado,
-            String localDeInstalacao, String logradouro,String id,LocalDate implantacao) {
+            String localDeInstalacao, String logradouro,String nomeRua,LocalDate implantacao) {
         this.descricao = descricao;
         this.implantacao = implantacao;
         this.lado = lado;
         this.localDeInstalacao = localDeInstalacao;
         this.logradouro = logradouro;
-        this.id = id;
+        this.nomeRua= nomeRua;
     }
 
     public String getDescricao() {
@@ -37,8 +37,8 @@ public class Sinalizacao {
         return localDeInstalacao;
     }
 
-    public String getId() {
-        return id;
+    public String getNomeRua() {
+        return nomeRua;
     }
 
     public String getlogradouro(){

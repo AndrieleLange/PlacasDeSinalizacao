@@ -1,13 +1,15 @@
 public class Rua {
     private ListaDeSinalizacoes lista;
-    private String nomeDaRua;//(Av, Rua, Trav, ...)
-    private String logradouro; 
+    private String nomeDaRua;
+    private String logradouro; //(Av, Rua, Trav, ...)
+    private String id;
 
 
 	public Rua(ListaDeSinalizacoes lista, String nomeDaRua, String logradouro) {
         this.lista = lista;
         this.nomeDaRua = nomeDaRua;
         this.logradouro = logradouro;
+        this.id = logradouro + " " + nomeDaRua;
     }
 
 
@@ -29,16 +31,21 @@ public class Rua {
 
     //adiciona na lista a sinalização
     public void addLista(Sinalizacao sinal){
-        if(logradouro.equals(sinal.getlogradouro()) && nomeDaRua.equals(sinal.getId()))
+        if(logradouro.equals(sinal.getlogradouro()) && nomeDaRua.equals(sinal.getNomeRua()))
 
         this.lista.add(sinal);
+    }
+
+
+    public String getId() {
+        return id;
     }
 
 
     @Override
     public String toString() {
         return "\n================================================================================================================"
-         +"\n"+ nomeDaRua + " " + logradouro + " "+ lista.toString()+
+         +"\n"+ id  + " "+ lista.toString()+
          "\n==========================================================================================================================";
     }
 
