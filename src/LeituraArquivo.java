@@ -49,16 +49,23 @@ public class LeituraArquivo {
         // Mude numLinhas para algum numero pequeno para executar testes mais rapidamente.
         // Ex:
         // for (int i = 0; i < 50; i++) {
+<<<<<<< HEAD
         for (int i = 0; i < 50; i++) {
             String[] campos = linhas[12].split(";");
 
             
+=======
+        for (int i = 0; i <numLinhas; i++) {
+            String[] campos = linhas[i].split(";");
+>>>>>>> 6e9e87443b803868f76e3645a2f514b97da0d008
 
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
             String descricao = campos[1];//vai para sinalização
             String estado = campos[2];//vai para a sinalização
             String complemento = campos[3]; //R-24A - N/P SEMÁFORO vai para a sinalização
 
+<<<<<<< HEAD
             System.out.println("Descricao: " + descricao);
             System.out.println("Estado: " + estado + ", " + complemento);
 
@@ -83,10 +90,26 @@ public class LeituraArquivo {
 
 
 
+=======
+            int anoImplantacao = 1;
+            int mesImplantacao = 1;
+            int diaImplantacao = 1;            
+            
+                if(campos[4].contains("/")){
+                    
+                LocalDate date = LocalDate.parse(campos[4], formatter);
+                anoImplantacao = date.getYear();
+                mesImplantacao = date.getMonthValue();
+                diaImplantacao = date.getDayOfMonth();
+                
+            }
+    LocalDate data = LocalDate.of(anoImplantacao, mesImplantacao, diaImplantacao);
+            
+>>>>>>> 6e9e87443b803868f76e3645a2f514b97da0d008
             //isso vai para rua
             String logradouro = campos[5].split(" ", 2)[0];
             String nomeLog = campos[5].split(" ", 2)[1];
-            System.out.println("Logradouro: " + logradouro + " " + nomeLog);
+            
 
             double numInicial;
             if(campos[6].equals(""))
@@ -111,10 +134,15 @@ public class LeituraArquivo {
                 localInstalacao = campos[12];}
 
                     
+<<<<<<< HEAD
                     ls.add(new Sinalizacao(descricao, null, lado, localInstalacao));
                     lr.orderedAdd(new Rua(ls, logradouro, nomeLog));
 
                     
+=======
+                    
+                    lr.orderedAdd(new Rua (new ListaDeSinalizacoes(), logradouro, nomeLog),new Sinalizacao(descricao, lado, localInstalacao, nomeLog,logradouro,data));
+>>>>>>> 6e9e87443b803868f76e3645a2f514b97da0d008
                     
                     
                 }             

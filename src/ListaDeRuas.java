@@ -35,11 +35,11 @@ public class ListaDeRuas {
     }
 
 
-    private Node containsElement(Rua element) {
+    private Node containsElement(String element) {
         Node aux = header.next;
         
         while (aux != trailer) {
-            if (aux.element.getNomeDaRua().equals(element.getNomeDaRua())) {
+            if (aux.element.getNomeDaRua().equals(element)) {
                 return aux;
             }
             aux = aux.next;
@@ -54,12 +54,13 @@ public class ListaDeRuas {
 	// usar o contains aqui
 
     //usando como add()
-    public void orderedAdd(Rua element) {
-        Node aux = containsElement(element); // verifica se já contém o elemento para não inserir duplicado
+    public void orderedAdd(Rua element, Sinalizacao sem) {
+        Node aux = containsElement(element.getNomeDaRua());
     
+        // verifica se já contém o elemento para não inserir duplicado
         if (aux == null) {  // se não contém o elemento, insere
             Node n = new Node(element);
-    
+            
             if (header.next == trailer) { 
                 // se a lista está vazia
                 n.prev = header;
@@ -71,8 +72,8 @@ public class ListaDeRuas {
                 // se for menor que o primeiro, insere no início
                 n.next = header.next;
                 n.prev = header;
+                header.next.prev = n;
                 header.next = n;
-                n.next.prev = n;
             }
             else if (element.getNomeDaRua().compareTo(trailer.prev.element.getNomeDaRua()) >= 0) {
                 // se for maior ou igual ao último, insere no final
@@ -93,7 +94,10 @@ public class ListaDeRuas {
                 aux.prev = n;
             }
             count++;
+    
+            aux = n; // Atualiza a referência para o novo nó inserido
         }
+        aux.element.addLista(sem);
     }
 
 	/**
@@ -109,7 +113,7 @@ public class ListaDeRuas {
         Node aux = header.next;
         while (aux != trailer) {
             Rua teste = aux.element;
-            sb.append(teste.toString());
+            sb.append("\n"+teste.toString());
             aux = aux.next;
         }
         return sb.toString();
@@ -126,5 +130,5 @@ public class ListaDeRuas {
 	// String getRuaComMaisSinalizacoes ()
 	
 	
-	// toString
+	
 
