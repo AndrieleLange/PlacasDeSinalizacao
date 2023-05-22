@@ -129,12 +129,10 @@ public class ListaDeRuas {
     
         // next()
         //não entendi pra que isso serve
-    
-            
-        } 
+        
         // prev()
     
         // String getRuaComMaisSinalizacoes ()
-	
-	
-
+    
+            
+} 

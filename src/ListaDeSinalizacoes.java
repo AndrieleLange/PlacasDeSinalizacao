@@ -3,11 +3,7 @@ import java.time.LocalDate;
  * aqui deve ser uma lista de encadeamento simples
  * onde vamos salvar as informações de uma sinalização
  * 
- * ainda falta entender como que vamos linkar
- * essa lista com a lista duplamente encadeada
  * 
- * falta um next e um um troço pra retroceder, pq ela quer
- * que a gente possa entrar em um modo navegação
  */
 public class ListaDeSinalizacoes {
     private class Node {
@@ -22,7 +18,6 @@ public class ListaDeSinalizacoes {
 
     private Node head;
     private Node tail;
-    private Node current;
     private int count;
    
 
@@ -37,8 +32,6 @@ public class ListaDeSinalizacoes {
         return head.next.element;
     }
 
-    //acredito que aqui a gente não precisa se preocupar em add
-    //infos que são iguais
     public void add(Sinalizacao sin){
         Node n = new Node(sin);
         if(head == null){
@@ -49,11 +42,7 @@ public class ListaDeSinalizacoes {
         }
         tail = n;
         count++;
-    }
-
-
-
-    
+    }    
 
 	public int size(){// retorna o total de sinalizações
         return count;
