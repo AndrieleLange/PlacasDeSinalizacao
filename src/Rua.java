@@ -1,13 +1,13 @@
 public class Rua {
     private ListaDeSinalizacoes lista;
     private String nomeDaRua;
-    private String idDaRua; //(Av, Rua, Trav, ...)
+    private String logradouro; //(Av, Rua, Trav, ...)
 
 
-	public Rua(ListaDeSinalizacoes lista, String nomeDaRua, String idDaRua) {
+	public Rua(ListaDeSinalizacoes lista, String nomeDaRua, String logradouro) {
         this.lista = lista;
         this.nomeDaRua = nomeDaRua;
-        this.idDaRua = idDaRua;
+        this.logradouro = logradouro;
     }
 
 
@@ -23,13 +23,13 @@ public class Rua {
     }
 
 
-    public String getIdDaRua() {
-        return idDaRua;
+    public String getlogradouro() {
+        return logradouro;
     }
 
     //adiciona na lista a sinalização
     public void addLista(Sinalizacao sinal){
-        if(idDaRua.equals(sinal.getlogradouro()) && nomeDaRua.equals(sinal.getId()))
+        if(logradouro.equals(sinal.getlogradouro()) && nomeDaRua.equals(sinal.getId()))
 
         this.lista.add(sinal);
     }
@@ -38,7 +38,7 @@ public class Rua {
     @Override
     public String toString() {
         return "\n================================================================================================================"
-         +"\n"+ nomeDaRua + " " + idDaRua + " "+ lista.toString()+
+         +"\n"+ nomeDaRua + " " + logradouro + " "+ lista.toString()+
          "\n==========================================================================================================================";
     }
 
