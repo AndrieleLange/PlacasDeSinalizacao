@@ -1,7 +1,7 @@
 public class Rua {
     private ListaDeSinalizacoes lista;
-    private String nomeDaRua;
-    private String logradouro; //(Av, Rua, Trav, ...)
+    private String nomeDaRua;//(Av, Rua, Trav, ...)
+    private String logradouro; 
 
 
 	public Rua(ListaDeSinalizacoes lista, String nomeDaRua, String logradouro) {

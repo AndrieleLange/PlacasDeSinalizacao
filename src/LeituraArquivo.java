@@ -92,7 +92,8 @@ public class LeituraArquivo {
 
                     
                     
-                    lr.orderedAdd(new Rua (new ListaDeSinalizacoes(), logradouro, nomeLog),new Sinalizacao(descricao, lado, localInstalacao, nomeLog,logradouro,data));
+                    lr.orderedAdd(new Rua (new ListaDeSinalizacoes(), logradouro, nomeLog),
+                                    new Sinalizacao(descricao, lado, localInstalacao, nomeLog,logradouro,data));
                     
                     
                 }             

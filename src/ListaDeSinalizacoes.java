@@ -17,10 +17,7 @@ public class ListaDeSinalizacoes {
             this.element = element;
             next = null;
         }
-        public Node(Sinalizacao element, Node next){
-            this.element = element;
-            this.next = next;
-        }
+       
     }
 
     private Node head;

@@ -93,6 +93,27 @@ public class ListaDeRuas {
             current = header.next;
         }
     
+
+        public String getRuaComMaisSinalizacoes() {
+            Node aux = header.next;
+            Node ruaComMaisSinalizacoes = null;
+            int maxSinalizacoes = 0;
+        
+            while (aux != trailer) {
+                int numSinalizacoes = aux.element.getLista().size();
+                if (numSinalizacoes > maxSinalizacoes) {
+                    maxSinalizacoes = numSinalizacoes;
+                    ruaComMaisSinalizacoes = aux;
+                }
+                aux = aux.next;
+            }
+        
+            if (ruaComMaisSinalizacoes != null) {
+                return ruaComMaisSinalizacoes.element.getNomeDaRua()+" "+ ruaComMaisSinalizacoes.element.getlogradouro();
+            } else {
+                return "Nenhuma rua encontrada.";
+            }
+        }
     
         public String toString() {
             StringBuilder sb = new StringBuilder();

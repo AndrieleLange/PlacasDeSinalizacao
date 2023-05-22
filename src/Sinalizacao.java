@@ -1,9 +1,5 @@
 import java.time.LocalDate;
-/**
- * falta o toString
- * 
- * provavelmente devemos adicionar setters também
- */
+
 
 public class Sinalizacao {
 
@@ -56,5 +52,5 @@ public class Sinalizacao {
 
 
 
-    //Métodos get e toString (para data de implantação, imprimir dd/mm/aa)
+    
 }
