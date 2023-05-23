@@ -39,6 +39,19 @@ public class ListaDeRuas {
         return null;
     }
 
+    public Node getHeader() {
+        return header;
+    }
+
+    public Node getTrailer() {
+        return trailer;
+    }
+
+   // public Node getCurrent() {
+    //    Node aux = new Node(null);
+      //  return current = ;
+  //  }
+
     public void orderedAdd(Rua element, Sinalizacao sem) {
         Node aux = containsElement(element.getId());
 
@@ -91,6 +104,18 @@ public class ListaDeRuas {
         current = header.next;
     }
 
+
+    public void next() {
+        if (current != trailer) {
+            current = current.next;
+        }
+    }
+
+    public void prev() {
+        if (current != header) {
+            current = current.prev;
+        }
+    }
     public String getRuaComMaisSinalizacoes() {
         Node aux = header.next;
         Node ruaComMaisSinalizacoes = null;
@@ -122,9 +147,5 @@ public class ListaDeRuas {
         }
         return sb.toString();
     }
-    // next()
-    // não entendi pra que isso serve
-
-    // prev()
 
 }

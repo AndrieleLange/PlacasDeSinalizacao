@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class LeituraArquivo {
 
@@ -86,11 +87,62 @@ public class LeituraArquivo {
             }
 
             lr.orderedAdd(new Rua(new ListaDeSinalizacoes(), logradouro, nomeRua),
-                    new Sinalizacao(descricao, lado, localInstalacao, nomeRua, logradouro, data));
+                        new Sinalizacao(descricao, lado, localInstalacao, nomeRua, logradouro, data));
 
         }
-        System.out.println(lr.toString());
+       /*  Scanner scanner = new Scanner(System.in);
+        int opcao = 0;
 
+        while (opcao != 4) {
+            System.out.println("\n=== MENU ===");
+            System.out.println("1. Percorrer a lista de ruas e exibir informações");
+            System.out.println("2. Verificar rua com mais sinalizações");
+            System.out.println("3. Exibir todas as ruas e suas sinalizações");
+            System.out.println("4. Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    percorrerListaRuas(lr);
+                    break;
+                case 2:
+                    verificarRuaComMaisSinalizacoes(lr);
+                    break;
+                case 3:
+                    exibirTodasAsRuas(lr);
+                    break;
+                case 4:
+                    System.out.println("Encerrando o programa...");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    break;
+            }
+        }
     }
 
+    private static void percorrerListaRuas(ListaDeRuas lr) {
+        lr.reset();
+        while (lr.getCurrent() != lr.getTrailer()) {
+            Rua rua = lr.getCurrent().element;
+            System.out.println("Rua: " + rua.getNomeRua());
+            System.out.println("Logradouro: " + rua.getLogradouro());
+            System.out.println("Número de sinalizações: " + rua.getListaSinalizacoes().getSize());
+            System.out.println();
+            lr.next();
+        }
+    }
+
+    private static void verificarRuaComMaisSinalizacoes(ListaDeRuas lr) {
+        
+    }
+
+    private static void exibirTodasAsRuas(ListaDeRuas lr) {
+        System.out.println(lr.toString());*/
+    }
 }
+
+    
+
+

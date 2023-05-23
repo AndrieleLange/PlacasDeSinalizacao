@@ -47,7 +47,11 @@ public class Sinalizacao {
 
     @Override
     public String toString() {
-        return "\n Data de implantação: " +implantacao+ "\n Sinalizacao:" + descricao + ", lado: " + lado + ", localDeInstalacao: " + localDeInstalacao +"\n" ;
+        return "\n Data de implantação: " +implantacao+ 
+        "\n Sinalizacao:" + descricao + 
+        ", lado: " + lado + 
+        ", localDeInstalacao: " + localDeInstalacao +
+        "\n" ;
     }
 
 
