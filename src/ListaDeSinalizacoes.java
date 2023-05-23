@@ -57,16 +57,16 @@ public class ListaDeSinalizacoes {
     count = 0;
   }
 
-  public Month getMes(int index) {
+  public void getMes(int index) {
     if (index >= 0 && index < count) {
         Node aux = head;
         for (int i = 0; i < index; i++) {
             aux = aux.next;
         }
         LocalDate dataImplantacao = aux.element.getImplantacao();
-        return dataImplantacao.getMonth();
+        System.out.println(aux.element.getDescricao()+ dataImplantacao.getMonth());
     }
-    return null;
+    
 }
 
 public LocalDate getMenorData() {
@@ -121,37 +121,8 @@ public LocalDate getMaiorData() {
 
     return s.toString();
   }
-  // public LocalDate getMes(int index){// retorna o mês de implantação da iésima sinalização
-  //     LocalDate mes;
-  //     for(int i = 0; i< count; i++){
-  //         //if()
-
-  //     }
-
-  //     return mes;
-  // }
-
-  /**
-
-	// Métodos
-	int getMes(index) // retorna o mês de implantação da iésima sinalização 
-
-	LocalDate getDataImplantacao(index) // retorna data de implantação da iésima 
-//sinalização, para depois comparar qual 
-// é maior ou menor
-
-	getMenorData() // retorna a data da primeira sinalização instalada 
-// (considerando esta lista)
-
-	getMaiorData() // retorna a data da última sinalização instalada 
-// (considerando esta lista)
-	
-reset()
-
-	next()
-}
-
-
-     */
+  
 
 }
+
+

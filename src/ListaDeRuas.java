@@ -47,10 +47,12 @@ public class ListaDeRuas {
         return trailer;
     }
 
-   // public Node getCurrent() {
-    //    Node aux = new Node(null);
-      //  return current = ;
-  //  }
+    public Rua getConteudoNoAtual() {
+        if (current != header && current != trailer) {
+            return current.element;
+        }
+        return null;
+    }
 
     public void orderedAdd(Rua element, Sinalizacao sem) {
         Node aux = containsElement(element.getId());
@@ -108,7 +110,10 @@ public class ListaDeRuas {
         return count;
     }
 
+   
+
     public Rua next() {
+        current = header;
         if (current != trailer) {
             Rua str = current.element;
             current = current.next;

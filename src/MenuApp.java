@@ -1,113 +1,71 @@
+import java.util.List;
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class MenuApp {
-    private ListaDeRuas listaDeRuas;
+    private ListaDeRuas listaRuas;
+    
 
-    public MenuApp() {
-        listaDeRuas = new ListaDeRuas();
+    public MenuApp(ListaDeRuas listaRuas){
+        this.listaRuas = listaRuas;
+        
     }
 
-    public static void main(String[] args) {
-        MenuApp app = new MenuApp();
-        app.run();
-    }
-
-    public void run() {
+    public void exibirMenu() {
+        int opcao;
         Scanner scanner = new Scanner(System.in);
-        int choice = 0;
 
         do {
-            displayMenu();
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Limpar o buffer de entrada
+            System.out.println("Menu:");
+            System.out.println("1. Ver rua atual");
+            System.out.println("2. Proxima Rua");
+            System.out.println("2. Obter a menor data de implantação das sinalizações");
+            System.out.println("3. Obter a maior data de implantação das sinalizações");
+            System.out.println("0. Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
 
-            switch (choice) {
-                
+            switch (opcao) {
                 case 1:
-                    displayRuas();
+                    verAtual();
                     break;
-                case 2:
-                    displaySinalizacoes();
+                    case 2:
+                    percorrerListaRuas();
                     break;
                 case 3:
-                    System.out.println("Encerrando o programa...");
+                    LocalDate menorData = listaRuas.getConteudoNoAtual().getLista().getMenorData();
+                    System.out.println("Menor data de implantação das sinalizações: " + menorData);
+                    break;
+                case 4:
+                    LocalDate maiorData = listaRuas.getConteudoNoAtual().getLista().getMaiorData();
+                    System.out.println("Maior data de implantação das sinalizações: " + maiorData);
+                    break;
+                case 0:
+                    System.out.println("Saindo...");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
-        } while (choice != 3);
+        } while (opcao != 0);
+    }
+
+    private void verAtual(){
+        System.out.println(listaRuas.getConteudoNoAtual().toString());
+    }
+
+    private void percorrerListaRuas() {
+     
+        listaRuas.next();
         
-        scanner.close();
     }
 
-    private void displayMenu() {
-        System.out.println("\n===== MENU =====");
-        System.out.println("3. Exibir Ruas");
-        System.out.println("4. Exibir Sinalizações de uma Rua");
-        System.out.println("5. Sair");
-        System.out.print("Escolha uma opção: ");
-    }
+    
 
-    private void addRua() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite o nome da rua: ");
-        String nomeRua = scanner.nextLine();
-        System.out.print("Digite o logradouro da rua: ");
-        String logradouro = scanner.nextLine();
-        Rua rua = new Rua(new ListaDeSinalizacoes(), nomeRua, logradouro);
-        listaDeRuas.orderedAdd(rua, null);
-        System.out.println("Rua adicionada com sucesso!");
-    }
+    
+            
+        
 
-    private void addSinalizacao() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite o nome da rua onde deseja adicionar a sinalização: ");
-        String nomeRua = scanner.nextLine();
-        System.out.print("Digite a descrição da sinalização: ");
-        String descricao = scanner.nextLine();
-        // Adicione os outros dados necessários para criar uma Sinalizacao
-        // ...
-
-        // Verifica se a rua existe na lista de ruas
-        Rua rua = getRuaByName(nomeRua);
-        if (rua != null) {
-            // Cria a sinalização
-            Sinalizacao sinalizacao = new Sinalizacao(descricao, /* outros parâmetros */);
-            // Adiciona a sinalização à rua
-            rua.addLista(sinalizacao);
-            System.out.println("Sinalização adicionada à rua com sucesso!");
-        } else {
-            System.out.println("A rua informada não existe na lista.");
-        }
-    }
-
-    private void displayRuas() {
-        System.out.println("\n===== LISTA DE RUAS =====");
-        System.out.println(listaDeRuas.toString());
-    }
-
-    private void displaySinalizacoes() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite o nome da rua para exibir as sinalizações: ");
-        String nomeRua = scanner.nextLine();
-        Rua rua = getRuaByName(nomeRua);
-        if (rua != null) {
-            System.out.println("\n===== SINALIZAÇÕES DA RUA " + nomeRua + " =====");
-            System.out.println(rua.getLista().toString());
-        } else {
-            System.out.println("A rua informada não existe na lista.");
-        }
-    }
-
-    private Rua getRuaByName(String nomeRua) {
-        Node aux = listaDeRuas.next();
-        while (aux != listaDeRuas.prev()) {
-            if (aux.getElement().getNomeDaRua().equals(nomeRua)) {
-                return aux.getElement();
-            }
-            aux = aux.getNext();
-        }
-        return null;
-    }
+    
 }
+
