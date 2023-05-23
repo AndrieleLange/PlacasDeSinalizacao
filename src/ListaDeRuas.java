@@ -104,17 +104,26 @@ public class ListaDeRuas {
         current = header.next;
     }
 
-
-    public void next() {
-        if (current != trailer) {
-            current = current.next;
-        }
+    public int size(){
+        return count;
     }
 
-    public void prev() {
-        if (current != header) {
-            current = current.prev;
+    public Rua next() {
+        if (current != trailer) {
+            Rua str = current.element;
+            current = current.next;
+            return str;
         }
+        return null;
+    }
+
+    public Rua prev() {
+        if (current != header) {
+            Rua r = current.element;
+            current = current.prev;
+            return r;
+        }
+        return null;
     }
     public String getRuaComMaisSinalizacoes() {
         Node aux = header.next;
