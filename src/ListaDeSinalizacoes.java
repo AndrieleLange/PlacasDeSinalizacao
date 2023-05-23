@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Month;
 
 /**
  * aqui deve ser uma lista de encadeamento simples
@@ -55,6 +56,57 @@ public class ListaDeSinalizacoes {
     tail = null;
     count = 0;
   }
+
+  public Month getMes(int index) {
+    if (index >= 0 && index < count) {
+        Node aux = head;
+        for (int i = 0; i < index; i++) {
+            aux = aux.next;
+        }
+        LocalDate dataImplantacao = aux.element.getImplantacao();
+        return dataImplantacao.getMonth();
+    }
+    return null;
+}
+
+public LocalDate getMenorData() {
+  if (head == null) {
+      return null; // Lista vazia
+  }
+
+  LocalDate menorData = head.element.getImplantacao();
+  Node current = head.next;
+
+  while (current != null) {
+      LocalDate data = current.element.getImplantacao();
+      if (data.isBefore(menorData)) {
+          menorData = data;
+      }
+      current = current.next;
+  }
+
+  return menorData;
+}
+
+public LocalDate getMaiorData() {
+  if (head == null) {
+      return null; // Lista vazia
+  }
+
+  LocalDate maiorData = head.element.getImplantacao();
+  Node current = head.next;
+
+  while (current != null) {
+      LocalDate data = current.element.getImplantacao();
+      if (data.isAfter(maiorData)) {
+          maiorData = data;
+      }
+      current = current.next;
+  }
+
+  return maiorData;
+}
+
 
   @Override
   public String toString() {
