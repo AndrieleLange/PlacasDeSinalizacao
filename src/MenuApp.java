@@ -15,12 +15,11 @@ public class MenuApp {
         int opcao;
         Scanner scanner = new Scanner(System.in);
 
-        do {
+        do {//é isso que o menu tem que ter e precisa mostrar
             System.out.println("Menu:");
-            System.out.println("1. Ver rua atual");
-            System.out.println("2. Proxima Rua");
-            System.out.println("2. Obter a menor data de implantação das sinalizações");
-            System.out.println("3. Obter a maior data de implantação das sinalizações");
+            System.out.println("1. Rua/av/trav com mais registros de sinalizações");
+            System.out.println("2. Modo navegação");
+            System.out.println("3. Mês com mais implantações");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
