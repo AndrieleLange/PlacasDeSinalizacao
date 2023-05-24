@@ -1,9 +1,13 @@
 import java.util.List;
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.time.Month;
 
 public class MenuApp {
     private ListaDeRuas listaRuas;
+ 
+
+
     
 
     public MenuApp(ListaDeRuas listaRuas){
@@ -12,6 +16,7 @@ public class MenuApp {
     }
 
     public void exibirMenu() {
+        
         int opcao;
         Scanner scanner = new Scanner(System.in);
 
@@ -30,10 +35,11 @@ public class MenuApp {
                     break;
                 case 2:
                     percorrerListaRuas();
+                    System.out.println(listaRuas.getConteudoNoAtual().toString());
                     break;
                 case 3:
-                    LocalDate menorData = listaRuas.getConteudoNoAtual().getLista().getMenorData();
-                    System.out.println("Menor data de implantação das sinalizações: " + menorData);
+                    Month mes = Month.of(listaRuas.getConteudoNoAtual().getLista().getMesMaisSinalizacoes());
+                    System.out.println("Mes com mais sinalizações: " + mes);
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -50,10 +56,14 @@ public class MenuApp {
     }
 
     private void percorrerListaRuas() {
-     
-        listaRuas.next();
-        
+        Rua ruaAtual = listaRuas.next();
+        if (ruaAtual != null) {
+            System.out.println(ruaAtual.toString());
+        }
     }
+
+
+
 
     
 

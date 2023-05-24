@@ -36,7 +36,7 @@ public class LeituraArquivo {
             System.err.format("Erro na leitura do arquivo: ", e.getMessage());
         }
 
-        for (int i = 0; i < 3000; i++) {
+        for (int i = 0; i < numLinhas; i++) {
             String[] campos = linhas[i].split(";");
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");

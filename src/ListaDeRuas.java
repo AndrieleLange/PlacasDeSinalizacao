@@ -1,3 +1,5 @@
+import javax.lang.model.element.Element;
+
 public class ListaDeRuas {
 
     private class Node {
@@ -15,7 +17,7 @@ public class ListaDeRuas {
 
     private Node header;
     private Node trailer;
-    private Node current;
+    private Node current ;
     private int count;
 
     public ListaDeRuas() {
@@ -24,6 +26,8 @@ public class ListaDeRuas {
         header.next = trailer;
         trailer.prev = header;
         count = 0;
+        
+    
     }
 
     private Node containsElement(String element) {
@@ -48,10 +52,12 @@ public class ListaDeRuas {
     }
 
     public Rua getConteudoNoAtual() {
-        if (current != header && current != trailer) {
+        if (current != header && current != trailer && current != null) {
             return current.element;
-        }
-        return null;
+        }else
+        current = header.next;
+        
+        return current.element;
     }
 
     public void orderedAdd(Rua element, Sinalizacao sem) {
@@ -103,7 +109,11 @@ public class ListaDeRuas {
      * fim).
      */
     public void reset() {
-        current = header.next;
+        if (header.next != trailer) {
+            current = header.next;
+        } else {
+            current = null; // Caso a lista esteja vazia
+        }
     }
 
     public int size(){
@@ -113,19 +123,20 @@ public class ListaDeRuas {
    
 
     public Rua next() {
-        current = header;
         if (current != trailer) {
             Rua str = current.element;
-            current = current.next;
+
             return str;
         }
-        return null;
-    }
+        current = current.next;
 
+        return current.element;
+    }
+    
     public Rua prev() {
         if (current != header) {
-            Rua r = current.element;
             current = current.prev;
+            Rua r = current.element;
             return r;
         }
         return null;
