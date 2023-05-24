@@ -1,6 +1,5 @@
-import java.util.List;
+
 import java.util.Scanner;
-import java.time.LocalDate;
 import java.time.Month;
 
 public class MenuApp {
@@ -67,7 +66,7 @@ public class MenuApp {
     private void verMaisSinal(){
         Rua ext = listaRuas.getRuaComMaisSinalizacoes();
 
-        System.out.println(ext.toString() + "\nNome da Rua "+ext.getId()+" \nNumero Total de sinalizaões: "+ ext.getLista().size());
+        System.out.println("\nNome da Rua "+ext.getId()+" \nNumero Total de sinalizaões: "+ ext.getLista().size());
 
     }
 
