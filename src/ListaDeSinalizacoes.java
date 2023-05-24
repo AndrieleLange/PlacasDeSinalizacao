@@ -57,7 +57,7 @@ public class ListaDeSinalizacoes {
     count = 0;
   }
 
-  public void getMes(int index) {
+  public void getMes(int index) {//e como a gente vai usar isso pra contar os meses????
     if (index >= 0 && index < count) {
         Node aux = head;
         for (int i = 0; i < index; i++) {
@@ -66,8 +66,7 @@ public class ListaDeSinalizacoes {
         LocalDate dataImplantacao = aux.element.getImplantacao();
         System.out.println(aux.element.getDescricao()+ dataImplantacao.getMonth());
     }
-    
-}
+  }
 
 public LocalDate getMenorData() {
   if (head == null) {
