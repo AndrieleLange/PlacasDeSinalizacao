@@ -122,26 +122,42 @@ public class ListaDeRuas {
 
    
 
-    public Rua next() {
-        if (current != trailer) {
-            Rua str = current.element;
-
+    public Rua next(ListaDeRuas r) {
+        Node aux = r.getCurrentNode();
+        Node ext = aux.next;
+        if (aux!= trailer && ext != null) {
+            Rua str =aux.element;
+            r.setCurrent(ext);
             return str;
-        }
-        current = current.next;
+        }else
+        aux = header.next;
+        r.setCurrent(aux);
+        return aux.element;
+    }
 
-        return current.element;
+    public Rua prev(ListaDeRuas r) {
+        Node aux = r.getCurrentNode();
+        Node ext = aux.prev;
+        if (aux!= header && ext != null) {
+            Rua str =aux.element;
+            r.setCurrent(ext);
+            return str;
+        }else 
+        aux = trailer.prev;
+        r.setCurrent(aux);
+        return aux.element;
     }
+
+    public void setCurrent(Node current) {
+        this.current = current;
+    }
+
+    public Node getCurrentNode() {
+        return current;
+    }
+
     
-    public Rua prev() {
-        if (current != header) {
-            current = current.prev;
-            Rua r = current.element;
-            return r;
-        }
-        return null;
-    }
-    public String getRuaComMaisSinalizacoes() {
+    public Rua getRuaComMaisSinalizacoes() {
         Node aux = header.next;
         Node ruaComMaisSinalizacoes = null;
         int maxSinalizacoes = 0;
@@ -155,11 +171,10 @@ public class ListaDeRuas {
             aux = aux.next;
         }
 
-        if (ruaComMaisSinalizacoes != null) {
-            return (ruaComMaisSinalizacoes.element.getId());
-        } else {
-            return "Nenhuma rua encontrada.";
-        }
+        if (ruaComMaisSinalizacoes != null) 
+            return (ruaComMaisSinalizacoes.element);
+
+       return null; 
     }
 
     public String toString() {
