@@ -28,16 +28,12 @@ public class MenuApp {
                 case 1:
                     verAtual();
                     break;
-                    case 2:
+                case 2:
                     percorrerListaRuas();
                     break;
                 case 3:
                     LocalDate menorData = listaRuas.getConteudoNoAtual().getLista().getMenorData();
                     System.out.println("Menor data de implantação das sinalizações: " + menorData);
-                    break;
-                case 4:
-                    LocalDate maiorData = listaRuas.getConteudoNoAtual().getLista().getMaiorData();
-                    System.out.println("Maior data de implantação das sinalizações: " + maiorData);
                     break;
                 case 0:
                     System.out.println("Saindo...");
