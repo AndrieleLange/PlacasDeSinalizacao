@@ -12,14 +12,10 @@ public class Rua {
         this.id = logradouro + " " + nomeDaRua;
     }
 
-
     public ListaDeSinalizacoes getLista() {
         return lista;
     }
-
-    //pra poder retornar a sinalização e salvar caso já tenha na lista 
     
-
     public String getNomeDaRua() {
         return nomeDaRua;
     }
@@ -36,11 +32,9 @@ public class Rua {
         this.lista.add(sinal);
     }
 
-
     public String getId() {
         return id;
     }
-
 
     @Override
     public String toString() {
@@ -49,7 +43,5 @@ public class Rua {
           " "
           + lista.toString()+
          "\n==========================================================================================================================";
-    }
-
-    
+    }   
 }

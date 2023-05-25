@@ -25,9 +25,7 @@ public class ListaDeRuas {
         trailer = new Node(null);
         header.next = trailer;
         trailer.prev = header;
-        count = 0;
-        
-    
+        count = 0;    
     }
 
     private Node containsElement(String element) {
@@ -152,7 +150,6 @@ public class ListaDeRuas {
             return str;
         } else 
             return null; // Caso a lista esteja vazia
-        
     }
 
     public int size(){

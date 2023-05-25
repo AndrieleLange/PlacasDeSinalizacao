@@ -39,7 +39,6 @@ public class LeituraArquivo {
 
             String descricao = campos[1];// vai para sinalização
         
-
             int anoImplantacao = 1;
             int mesImplantacao = 1;
             int diaImplantacao = 1;
@@ -57,30 +56,18 @@ public class LeituraArquivo {
             // isso vai para rua
             String nomeRua = campos[5].split(" ", 2)[0];
             String logradouro = campos[5].split(" ", 2)[1];
-
-            
-
-            
             String lado = campos[10];
-            
-            
+
             String localInstalacao = "";
             if (campos.length >= 13) {
                 localInstalacao = campos[12];
             }
-            /*if(mesImplantacao!=1 && diaImplantacao !=1 && anoImplantacao != 1 ){
-            lr.orderedAdd(new Rua(new ListaDeSinalizacoes(), logradouro, nomeRua),
-                        new Sinalizacao(descricao, lado, localInstalacao, nomeRua, logradouro, data));}else{lr.orderedAdd(new Rua(new ListaDeSinalizacoes(), logradouro, nomeRua),
-                        new Sinalizacao(descricao, lado, localInstalacao, nomeRua, logradouro, data));}}*/
             
             lr.orderedAdd(new Rua(new ListaDeSinalizacoes(), logradouro, nomeRua),
                         new Sinalizacao(descricao, lado, localInstalacao, nomeRua, logradouro, data));
 
         }
-
-
          
-      
         MenuApp meni = new MenuApp(lr);
         meni.exibirMenu();
          

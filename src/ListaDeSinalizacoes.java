@@ -1,12 +1,5 @@
 import java.time.LocalDate;
 
-
-/**
- * aqui deve ser uma lista de encadeamento simples
- * onde vamos salvar as informações de uma sinalização
- *
- *
- */
 public class ListaDeSinalizacoes {
 
   private class Node {

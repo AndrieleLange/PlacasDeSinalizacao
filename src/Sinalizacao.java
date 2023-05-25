@@ -11,7 +11,6 @@ public class Sinalizacao {
     private String localDeInstalacao;
    
 
-
     public Sinalizacao(String descricao,String lado,
             String localDeInstalacao, String logradouro,String nomeRua,LocalDate implantacao) {
         this.descricao = descricao;
@@ -56,9 +55,5 @@ public class Sinalizacao {
         ", lado: " + lado + 
         ", localDeInstalacao: " + localDeInstalacao +
         "\n" ;
-    }
-
-
-
-    
+    }    
 }

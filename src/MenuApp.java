@@ -20,12 +20,8 @@ public class MenuApp {
 
         do {
             System.out.println("Menu:");
-            // System.out.println("1. inicio");
             System.out.println("1. Rua/av/trav com mais registros de sinalizações");
-            // System.out.println("3. next");
-            // System.out.println("4. prev");
-            System.out.println("2. Modo navegação");
-            // System.out.println("6. Mês com mais implantações da rua atual");
+            System.out.println("2. Modo navegação");            
             System.out.println("3. Mês com mais implantações no total");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
@@ -121,15 +117,12 @@ public class MenuApp {
                 case 40:
                 fechaPrograma = false;
                 break;
-
                 
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
                 break;
             }
         }while(fechaPrograma);
-        
-        
 
     }
 
