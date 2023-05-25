@@ -69,7 +69,11 @@ public class LeituraArquivo {
             if (campos.length >= 13) {
                 localInstalacao = campos[12];
             }
-
+            /*if(mesImplantacao!=1 && diaImplantacao !=1 && anoImplantacao != 1 ){
+            lr.orderedAdd(new Rua(new ListaDeSinalizacoes(), logradouro, nomeRua),
+                        new Sinalizacao(descricao, lado, localInstalacao, nomeRua, logradouro, data));}else{lr.orderedAdd(new Rua(new ListaDeSinalizacoes(), logradouro, nomeRua),
+                        new Sinalizacao(descricao, lado, localInstalacao, nomeRua, logradouro, data));}}*/
+            
             lr.orderedAdd(new Rua(new ListaDeSinalizacoes(), logradouro, nomeRua),
                         new Sinalizacao(descricao, lado, localInstalacao, nomeRua, logradouro, data));
 
