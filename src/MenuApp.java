@@ -73,7 +73,7 @@ public class MenuApp {
                     break;
                     case 7:
                 clearConsole();
-                    Month mon = Month.of(listaRuas.getMesComMaisImplantacoes(listaRuas));
+                    Month mon = Month.of(listaRuas.getMesComMaisSinalizacoesConcatenadas());
                     System.out.println("Mes com mais sinalizações: " + mon);
                     exibirMenu();
                     break;

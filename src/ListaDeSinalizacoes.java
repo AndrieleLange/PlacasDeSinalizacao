@@ -22,6 +22,7 @@ public class ListaDeSinalizacoes {
 
   private Node head;
   private Node tail;
+  private Node current ;
   private int count;
 
   public ListaDeSinalizacoes() { //iniciar uma lista de sinalizações
@@ -34,6 +35,7 @@ public class ListaDeSinalizacoes {
   public Sinalizacao get1sinal() {
     return head.next.element;
   }
+  
 
   public void add(Sinalizacao sin) {
     Node n = new Node(sin);
@@ -115,6 +117,57 @@ public LocalDate getMenorData() {
 
   return menorData;
 }
+
+
+public void setCurrent(Node node) {
+  current = node;
+}
+
+public Node getCurrentNode() {
+  return current;
+}
+
+public void concatenar(ListaDeSinalizacoes outraLista) {
+  if (head == null) {
+    head = outraLista.head;
+    tail = outraLista.tail;
+  } else {
+    tail.next = outraLista.head;
+    tail = outraLista.tail;
+  }
+  count += outraLista.count;
+}
+
+public Sinalizacao getCurrent() {
+  if (current != null) {
+      return current.element;
+  } else {
+      return null;
+  }
+}
+
+public Sinalizacao next() {
+  if (current != null && current.next != null) {
+      current = current.next;
+      return current.element;
+  } else {
+      return null;
+  }
+}
+
+public Sinalizacao prev() {
+  if (current != null && current != head) {
+      Node prevNode = head;
+      while (prevNode.next != current) {
+          prevNode = prevNode.next;
+      }
+      current = prevNode;
+      return current.element;
+  } else {
+      return null;
+  }
+}
+
 
 public LocalDate getMaiorData() {
   if (head == null) {

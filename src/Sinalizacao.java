@@ -22,6 +22,10 @@ public class Sinalizacao {
         this.nomeRua= nomeRua;
     }
 
+    public int getMes() {
+        return implantacao.getMonthValue();
+    }
+
     public String getDescricao() {
         return descricao;
     }

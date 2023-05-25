@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+
 
 public class ListaDeRuas {
 
@@ -104,19 +104,30 @@ public class ListaDeRuas {
         aux.element.addLista(sem);
     }
 
-
-    public int getMesComMaisImplantacoes(ListaDeRuas listaRuas) {
-        Node aux = header.next;
-        Node current = aux;
-        int[] meses = new int[12]; // Array para contar as sinalizações por mês
-        
-        while (current != trailer) {
-          if(current.element.getLista().getMesMaisSinalizacoes()> 0){
-            
-            int mes = current.element.getLista().getMesMaisSinalizacoes();
-            meses[mes - 1]++;
+    public int getMesComMaisSinalizacoesConcatenadas(ListaDeRuas listaDeRuas) {
+        ListaDeSinalizacoes todasSinalizacoes = new ListaDeSinalizacoes();
+    
+        Node current = listaDeRuas.header.next;
+        while (current != listaDeRuas.trailer) {
+            ListaDeSinalizacoes lista = current.element.getLista();
+            todasSinalizacoes.concatenar(lista);
             current = current.next;
-          }
+        }
+    
+        return todasSinalizacoes.getMesMaisSinalizacoes();
+    }
+
+
+    public int getMesComMaisSinalizacoes() {
+        Node current = header.next;
+        int[] meses = new int[12]; // Array para contar as sinalizações por mês
+    
+        while (current != trailer) {
+            int mes = current.element.getLista().get1sinal().getMes();
+            if (mes > 0) {
+                meses[mes - 1]++;
+            }
+            current = current.next; // Avança para o próximo nó
         }
     
         int mesMaisSinalizacoes = 0;
@@ -130,8 +141,6 @@ public class ListaDeRuas {
         }
     
         return mesMaisSinalizacoes;
-    
-    
     }
     
     public Rua reset(ListaDeRuas r) {
