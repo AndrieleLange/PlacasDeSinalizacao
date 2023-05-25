@@ -63,13 +63,16 @@ public class ListaDeSinalizacoes {
     }
 
     int[] meses = new int[12]; // Array para contar as sinalizações por mês
+    LocalDate ero = LocalDate.of(1, 1, 1);
 
     Node current = head;
     while (current != null) {
+      if(current.element.getImplantacao()!=ero){
         LocalDate dataImplantacao = current.element.getImplantacao();
         int mes = dataImplantacao.getMonthValue();
         meses[mes - 1]++;
         current = current.next;
+      }
     }
 
     int mesMaisSinalizacoes = 0;

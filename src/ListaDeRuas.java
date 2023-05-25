@@ -107,12 +107,16 @@ public class ListaDeRuas {
      * Inicializa o current na primeira posicao (para percorrer do inicio para o
      * fim).
      */
-    public void reset() {
+    public Rua reset(ListaDeRuas r) {
+        Node ext = header.next;
+        Rua str = new Rua(null, null, null);
         if (header.next != trailer) {
-            current = header.next;
-        } else {
-            current = null; // Caso a lista esteja vazia
-        }
+         str =ext.element;
+            r.setCurrent(ext);
+            return str;
+        } else 
+            return null; // Caso a lista esteja vazia
+        
     }
 
     public int size(){
