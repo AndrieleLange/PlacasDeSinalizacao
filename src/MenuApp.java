@@ -6,9 +6,6 @@ public class MenuApp {
     private ListaDeRuas listaRuas;
  
 
-
-    
-
     public MenuApp(ListaDeRuas listaRuas){
         this.listaRuas = listaRuas;
         
@@ -18,7 +15,6 @@ public class MenuApp {
         bg();
         
        
-        
         int opcao;
         Scanner scanner = new Scanner(System.in);
 
@@ -38,8 +34,7 @@ public class MenuApp {
             switch (opcao) {
                 case 1:
                 clearConsole();
-                    verAtual();
-                    exibirMenu();
+                    verMaisSinal();
                     break;
                 case 2:
                     clearConsole();
@@ -47,9 +42,8 @@ public class MenuApp {
                     break;
                 case 3:
                     clearConsole();
-                    Month mon = Month.of(listaRuas.getMesComMaisImplantacoes(listaRuas));
+                    Month mon = Month.of(listaRuas.getMesComMaisSinalizacoesConcatenadas(listaRuas));
                     System.out.println("Mes com mais sinalizações: " + mon);
-                    exibirMenu();
                     break;
                 
                 case 0:
@@ -57,7 +51,6 @@ public class MenuApp {
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
-                    exibirMenu();
                     break;
             }
         } while (opcao != 0);
@@ -103,36 +96,38 @@ public class MenuApp {
         int opcaoModo;
         Scanner scanner = new Scanner(System.in);
         verAtual();
+        boolean fechaPrograma = true;
         do{
+            
             System.out.println("10) Anterior              20) Próximo");
             System.out.println("30)  Início da lista      40) Retornar ao menu");
             opcaoModo = scanner.nextInt();
             switch(opcaoModo){
                 case 10: 
+                clearConsole(); 
                     percorrerListaRuasP();
-                    modoNavegação();
                 break;
 
                 case 20: 
+                clearConsole(); 
                     percorrerListaRuas();
-                    modoNavegação();
                 break;
 
-                case 30: 
+                case 30:
+                clearConsole(); 
                     inicio();
-                    modoNavegação();
                 break;
 
                 case 40:
-                    exibirMenu();
+                fechaPrograma = false;
                 break;
+
                 
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
-                    modoNavegação();
                 break;
             }
-        }while(opcaoModo != 40);
+        }while(fechaPrograma);
         
         
 
