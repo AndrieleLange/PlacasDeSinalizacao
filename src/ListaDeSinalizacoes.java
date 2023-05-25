@@ -57,6 +57,14 @@ public class ListaDeSinalizacoes {
     count = 0;
   }
 
+  public Sinalizacao getHead() {
+    return head.element;
+  }
+
+  public Sinalizacao getTail() {
+    return tail.element;
+  }
+
   public int getMesMaisSinalizacoes() {
     if (head == null) {
         return -1; // Lista vazia, nenhum mês com sinalizações
@@ -126,6 +134,7 @@ public LocalDate getMaiorData() {
 
   return maiorData;
 }
+
 
 
   @Override

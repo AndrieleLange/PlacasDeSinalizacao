@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 
 public class ListaDeRuas {
 
@@ -103,10 +104,36 @@ public class ListaDeRuas {
         aux.element.addLista(sem);
     }
 
-    /**
-     * Inicializa o current na primeira posicao (para percorrer do inicio para o
-     * fim).
-     */
+
+    public int getMesComMaisImplantacoes(ListaDeRuas listaRuas) {
+        Node aux = header.next;
+        Node current = aux;
+        int[] meses = new int[12]; // Array para contar as sinalizações por mês
+        
+        while (current != trailer) {
+          if(current.element.getLista().getMesMaisSinalizacoes()> 0){
+            
+            int mes = current.element.getLista().getMesMaisSinalizacoes();
+            meses[mes - 1]++;
+            current = current.next;
+          }
+        }
+    
+        int mesMaisSinalizacoes = 0;
+        int maxSinalizacoes = 0;
+    
+        for (int i = 0; i < meses.length; i++) {
+            if (meses[i] > maxSinalizacoes) {
+                maxSinalizacoes = meses[i];
+                mesMaisSinalizacoes = i + 1;
+            }
+        }
+    
+        return mesMaisSinalizacoes;
+    
+    
+    }
+    
     public Rua reset(ListaDeRuas r) {
         Node ext = header.next;
         Rua str = new Rua(null, null, null);

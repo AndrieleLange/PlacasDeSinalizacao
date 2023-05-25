@@ -7,8 +7,6 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
-
 public class LeituraArquivo {
 
     public static void main(String[] args) throws ParseException {
@@ -60,11 +58,12 @@ public class LeituraArquivo {
             String nomeRua = campos[5].split(" ", 2)[0];
             String logradouro = campos[5].split(" ", 2)[1];
 
-    
+            
 
-           
+            
             String lado = campos[10];
-           
+            
+            
             String localInstalacao = "";
             if (campos.length >= 13) {
                 localInstalacao = campos[12];
@@ -79,11 +78,15 @@ public class LeituraArquivo {
 
         }
 
+
+         
+      
         MenuApp meni = new MenuApp(lr);
         meni.exibirMenu();
          
+    }
 }
-}
+
     
 
 
