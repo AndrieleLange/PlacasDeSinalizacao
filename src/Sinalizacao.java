@@ -24,16 +24,9 @@ public class Sinalizacao {
     public int getMes() {
         return implantacao.getMonthValue();
     }
-
-    public String getDescricao() {
-        return descricao;
-    }
+    
     public LocalDate getImplantacao() {
         return implantacao;
-    }
-
-    public String getLado() {
-        return lado;
     }
 
     public String getLocalDeInstalacao() {
