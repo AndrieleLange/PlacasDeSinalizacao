@@ -1,4 +1,5 @@
 
+
 import java.util.Scanner;
 import java.time.Month;
 
@@ -115,6 +116,7 @@ public class MenuApp {
                 break;
 
                 case 40:
+                clearConsole();
                 fechaPrograma = false;
                 break;
                 
