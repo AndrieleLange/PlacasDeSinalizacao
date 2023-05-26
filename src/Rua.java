@@ -1,4 +1,4 @@
-public class Rua {
+ppublic class Rua {
     private ListaDeSinalizacoes lista;
     private String nomeDaRua;
     private String logradouro; //(Av, Rua, Trav, ...)
@@ -37,11 +37,14 @@ public class Rua {
     }
 
     @Override
-    public String toString() {
-        return "\n================================================================================================================"
-         +"\n"+ id  +
-          " "
-          + lista.toString()+
-         "\n==========================================================================================================================";
-    }   
+public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("\n================================================================================================================");
+    sb.append("\n").append(id);
+    sb.append("\nPrimeira Sinalização: ").append(lista.getHead().toString());
+    sb.append("\nUltima Sinalização: ").append(lista.getTail().toString());
+    sb.append("\nNúmero de Sinalizações: ").append(lista.size());
+    sb.append("\n==========================================================================================================================");
+    return sb.toString();
+}
 }
